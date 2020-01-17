@@ -1,0 +1,23 @@
+﻿<Window x:Class="ExampleGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Click Me for real!" HorizontalAlignment="Left" Margin="174,188,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Click="Button_Click"/>
+        <Label x:Name="label" Content="" HorizontalAlignment="Left" Margin="236,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="459,198,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="textBox_KeyUp"/>
+        <Label Content="Enter your name:" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="388,93,0,0" VerticalAlignment="Top" Width="120" Maximum="100" ValueChanged="slider_ValueChanged"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="628,314,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="First thing"/>
+            <ComboBoxItem Content="Second thing"/>
+        </ComboBox>
+        <RadioButton x:Name="itemizeRadioButton" Content="Itemize" HorizontalAlignment="Left" Margin="118,111,0,0" VerticalAlignment="Top" Checked="itemizeRadioButton_Checked"/>
+        <RadioButton x:Name="standardDeductionRadioButton" Content="Standard ( $12,200 )" HorizontalAlignment="Left" Margin="118,131,0,0" VerticalAlignment="Top" IsChecked="True" Checked="standardDeductionRadioButton_Checked"/>
+
+    </Grid>
+</Window>
