@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="widthTextBox" HorizontalAlignment="Left" Margin="152,67,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="lengthTextBox" HorizontalAlignment="Left" Margin="294,67,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Enter the width" HorizontalAlignment="Left" Margin="152,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Enter the length" HorizontalAlignment="Left" Margin="294,36,0,0" VerticalAlignment="Top"/>
+        <Button Content="Create a Rectangle!" HorizontalAlignment="Left" Margin="463,61,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Label x:Name="rectanglesInfoLabel" Content="" HorizontalAlignment="Left" Margin="165,123,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="fibonacciNumbersLabel" Content="" HorizontalAlignment="Left" Margin="644,157,0,0" VerticalAlignment="Top"/>
+        <Button Content="Show me the fib!" HorizontalAlignment="Left" Margin="654,115,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
