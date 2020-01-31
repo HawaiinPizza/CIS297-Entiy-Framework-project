@@ -21,10 +21,11 @@ namespace Connect4
     public partial class MainWindow : Window
     {
         List<List<Ellipse>> spaces;
-        Connect4Game game = new Connect4Game();
+        Connect4Game game;
         public MainWindow()
         {
             InitializeComponent();
+            game = new Connect4Game();
             spaces = new List<List<Ellipse>>();
 
             for (int rowNumber = 0; rowNumber < 6; rowNumber++)
@@ -47,14 +48,12 @@ namespace Connect4
                 }
 
                 spaces.Add(row);
-
             }
 
-            updatePieces();
-
+            updateDisplay();
         }
 
-        public void updatePieces()
+        public void updateDisplay()
         {
             for (int rowIndex = 0; rowIndex < spaces.Count; rowIndex++)
             {
@@ -72,6 +71,72 @@ namespace Connect4
                     }
                        
                 }
+            }
+            if ( game.getCurrentPlayer() == Piece.Red)
+            {
+                currentPlayerLabel.Content = nameof(Piece.Red);
+            }
+            else
+            {
+                currentPlayerLabel.Content = nameof(Piece.Green);
+            }
+
+            if (game.isTie())
+            {
+                errorLabel.Content = "TIE!";
+                return;
+            }
+            if (game.isGameOver())
+            {
+                errorLabel.Content = game.getCurrentPlayer() == Piece.Red ? "Green wins!" : "Red Wins!";
+                return;
+            }
+
+        }
+
+        private void columnButton_Click(object sender, RoutedEventArgs e)
+        {           
+            errorLabel.Content = "";
+            if (!game.isGameOver())
+            {
+
+                if (sender == column0Button)
+                {
+                    dropPiece(0);
+                }
+                else if (sender == column1Button)
+                {
+                    dropPiece(1);
+                }
+                else if (sender == column2Button)
+                {
+                    dropPiece(2);
+                }
+                else if (sender == column3Button)
+                {
+                    dropPiece(3);
+                }
+                else if (sender == column4Button)
+                {
+                    dropPiece(4);
+                }
+                else if (sender == column5Button)
+                {
+                    dropPiece(5);
+                }
+                else if (sender == column6Button)
+                {
+                    dropPiece(6);
+                }
+            }
+            updateDisplay();
+        }
+
+        private void dropPiece(int columnIndex)
+        {
+            if (!game.dropPieceInColumn(columnIndex))
+            {
+                errorLabel.Content = "Pick a different column dummy!";
             }
         }
     }

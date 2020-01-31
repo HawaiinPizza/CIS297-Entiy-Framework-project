@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="grid">
-        <Button x:Name="column0Button" Content="Drop" HorizontalAlignment="Left" Margin="105,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="column1Button" Content="Drop" HorizontalAlignment="Left" Margin="170,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="column2Button" Content="Drop" HorizontalAlignment="Left" Margin="230,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="column3Button" Content="Drop" HorizontalAlignment="Left" Margin="290,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="column4Button" Content="Drop" HorizontalAlignment="Left" Margin="350,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="column5Button" Content="Drop" HorizontalAlignment="Left" Margin="410,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="column6Button" Content="Drop" HorizontalAlignment="Left" Margin="470,26,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="column0Button" Content="Drop" HorizontalAlignment="Left" Margin="105,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Button x:Name="column1Button" Content="Drop" HorizontalAlignment="Left" Margin="170,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Button x:Name="column2Button" Content="Drop" HorizontalAlignment="Left" Margin="230,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Button x:Name="column3Button" Content="Drop" HorizontalAlignment="Left" Margin="290,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Button x:Name="column4Button" Content="Drop" HorizontalAlignment="Left" Margin="350,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Button x:Name="column5Button" Content="Drop" HorizontalAlignment="Left" Margin="410,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Button x:Name="column6Button" Content="Drop" HorizontalAlignment="Left" Margin="470,26,0,0" VerticalAlignment="Top" Click="columnButton_Click"/>
+        <Label x:Name="currentPlayerLabel" Content="" HorizontalAlignment="Left" Margin="589,92,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <Label x:Name="errorLabel" Content="" HorizontalAlignment="Left" Margin="616,0,0,0" VerticalAlignment="Center" FontSize="24"/>
     </Grid>
 </Window>
