@@ -33,7 +33,7 @@
         <Label x:Name="yahtzeeScoreLabel" Content="Yahtzee" HorizontalAlignment="Left" Margin="636,347,0,0" VerticalAlignment="Top" MouseLeftButtonDown="yahtzeeScoreLabel_MouseLeftButtonDown"/>
         <Label x:Name="chanceScoreLabel" Content="Chance" HorizontalAlignment="Left" Margin="636,365,0,0" VerticalAlignment="Top" MouseLeftButtonDown="chanceScoreLabel_MouseLeftButtonDown"/>
         <Label x:Name="totalScoreLabel" Content="Total" HorizontalAlignment="Left" Margin="636,383,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="rollButton" Content="roll" HorizontalAlignment="Left" Margin="223,236,0,0" VerticalAlignment="Top" Click="rollButton_Click"/>
+        <Button x:Name="rollButton" Content="roll" HorizontalAlignment="Left" Margin="223,236,0,0" VerticalAlignment="Top" Click="rollButton_Click" Width="78"/>
 
     </Grid>
 </Window>

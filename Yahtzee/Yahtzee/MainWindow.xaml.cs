@@ -121,6 +121,7 @@ namespace Yahtzee
             if ( yahtzeeGame.IsGameOver() )
             {
                 rollButton.Content = "GAME OVER!";
+                rollButton.IsEnabled = false;
             }
             else
             {
