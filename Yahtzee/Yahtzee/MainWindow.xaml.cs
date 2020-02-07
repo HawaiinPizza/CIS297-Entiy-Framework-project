@@ -35,22 +35,22 @@ namespace Yahtzee
 
         private void holdDie2CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            yahtzeeGame.dice.changeShouldRollForIndex(1, !holdDie1CheckBox.IsChecked.Value);
+            yahtzeeGame.dice.changeShouldRollForIndex(1, !holdDie2CheckBox.IsChecked.Value);
         }
 
         private void holdDie3CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            yahtzeeGame.dice.changeShouldRollForIndex(2, !holdDie1CheckBox.IsChecked.Value);
+            yahtzeeGame.dice.changeShouldRollForIndex(2, !holdDie3CheckBox.IsChecked.Value);
         }
 
         private void holdDie4CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            yahtzeeGame.dice.changeShouldRollForIndex(3, !holdDie1CheckBox.IsChecked.Value);
+            yahtzeeGame.dice.changeShouldRollForIndex(3, !holdDie4CheckBox.IsChecked.Value);
         }
 
         private void holdDie5CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            yahtzeeGame.dice.changeShouldRollForIndex(4, !holdDie1CheckBox.IsChecked.Value);
+            yahtzeeGame.dice.changeShouldRollForIndex(4, !holdDie5CheckBox.IsChecked.Value);
         }
 
         private void rollButton_Click(object sender, RoutedEventArgs e)
@@ -131,6 +131,8 @@ namespace Yahtzee
                 holdDie4CheckBox.IsChecked = false;
                 holdDie5CheckBox.IsChecked = false;
             }
+
+            updateLabels();
            
         }
 
