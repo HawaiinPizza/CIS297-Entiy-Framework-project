@@ -1,0 +1,39 @@
+﻿<Window x:Class="Yahtzee.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yahtzee"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Height="473" Margin="0,0,-62,0">
+        <Label x:Name="die1Label" Content="1" HorizontalAlignment="Left" Margin="67,115,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="die2Label" Content="2" HorizontalAlignment="Left" Margin="158,115,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="die3Label" Content="3" HorizontalAlignment="Left" Margin="236,115,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="die4Label" Content="4" HorizontalAlignment="Left" Margin="329,115,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="die5Label" Content="5" HorizontalAlignment="Left" Margin="410,115,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="holdDie1CheckBox" Content="Hold" HorizontalAlignment="Left" Margin="52,158,0,0" VerticalAlignment="Top" Click="holdDie1CheckBox_Checked"/>
+        <CheckBox x:Name="holdDie2CheckBox" Content="Hold" HorizontalAlignment="Left" Margin="133,158,0,0" VerticalAlignment="Top" Click="holdDie2CheckBox_Checked"/>
+        <CheckBox x:Name="holdDie3CheckBox" Content="Hold" HorizontalAlignment="Left" Margin="223,158,0,0" VerticalAlignment="Top" Click="holdDie3CheckBox_Checked"/>
+        <CheckBox x:Name="holdDie4CheckBox" Content="Hold" HorizontalAlignment="Left" Margin="313,158,0,0" VerticalAlignment="Top" Click="holdDie4CheckBox_Checked"/>
+        <CheckBox x:Name="holdDie5CheckBox" Content="Hold" HorizontalAlignment="Left" Margin="394,158,0,0" VerticalAlignment="Top" Click="holdDie5CheckBox_Checked"/>
+        <Label x:Name="onesScoreLabel" Content="Ones" HorizontalAlignment="Left" Margin="636,15,0,0" VerticalAlignment="Top" MouseLeftButtonDown="onesScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="twosScoreLabel" Content="Twos" HorizontalAlignment="Left" Margin="636,42,0,0" VerticalAlignment="Top" MouseLeftButtonDown="twosScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="threesScoreLabel" Content="Threes" HorizontalAlignment="Left" Margin="636,69,0,0" VerticalAlignment="Top" MouseLeftButtonDown="threesScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="foursScoreLabel" Content="Fours" HorizontalAlignment="Left" Margin="636,96,0,0" VerticalAlignment="Top" MouseLeftButtonDown="foursScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="fivesScoreLabel" Content="Fives" HorizontalAlignment="Left" Margin="636,123,0,0" VerticalAlignment="Top" MouseLeftButtonDown="fivesScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="sixesScoreLabel" Content="Sixes" HorizontalAlignment="Left" Margin="636,149,0,0" VerticalAlignment="Top" MouseLeftButtonDown="sixesScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="upperSumScoreLabel" Content="Upper Sum" HorizontalAlignment="Left" Margin="636,174,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="bonusScoreLabel" Content="Bonus" HorizontalAlignment="Left" Margin="636,199,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="threeOfAkindScoreLabel" Content="Three Of A Kind" HorizontalAlignment="Left" Margin="636,0,0,0" VerticalAlignment="Center" MouseLeftButtonDown="threeOfAkindScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="fourOfAKindScoreLabel" Content="Four of a kind" HorizontalAlignment="Left" Margin="636,245,0,0" VerticalAlignment="Top" MouseLeftButtonDown="fourOfAKindScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="fullHouseScoreLabel" Content="Full house" HorizontalAlignment="Left" Margin="636,266,0,0" VerticalAlignment="Top" MouseLeftButtonDown="fullHouseScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="smallStraightScoreLabel" Content="Small Straight" HorizontalAlignment="Left" Margin="636,293,0,0" VerticalAlignment="Top" MouseLeftButtonDown="smallStraightScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="largeStraightScoreLabel" Content="Large Straight" HorizontalAlignment="Left" Margin="636,320,0,0" VerticalAlignment="Top" MouseLeftButtonDown="largeStraightScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="yahtzeeScoreLabel" Content="Yahtzee" HorizontalAlignment="Left" Margin="636,347,0,0" VerticalAlignment="Top" MouseLeftButtonDown="yahtzeeScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="chanceScoreLabel" Content="Chance" HorizontalAlignment="Left" Margin="636,365,0,0" VerticalAlignment="Top" MouseLeftButtonDown="chanceScoreLabel_MouseLeftButtonDown"/>
+        <Label x:Name="totalScoreLabel" Content="Total" HorizontalAlignment="Left" Margin="636,383,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="rollButton" Content="roll" HorizontalAlignment="Left" Margin="223,236,0,0" VerticalAlignment="Top" Click="rollButton_Click"/>
+
+    </Grid>
+</Window>
