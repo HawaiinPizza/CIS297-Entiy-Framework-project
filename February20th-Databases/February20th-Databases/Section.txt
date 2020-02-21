@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].Section
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Course_Id] INT NOT NULL, 
+    [Days] NVARCHAR(50) NOT NULL, 
+    [TIme] NVARCHAR(50) NOT NULL, 
+    [Instructor_Id] INT NOT NULL, 
+    CONSTRAINT [FK_Section_ToCourse] FOREIGN KEY (Course_Id) REFERENCES Course([Id])
+)
