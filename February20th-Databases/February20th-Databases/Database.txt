@@ -1,0 +1,30 @@
+﻿CREATE TABLE [dbo].Course
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Department] NVARCHAR(50) NOT NULL, 
+    [Number] NVARCHAR(50) NOT NULL, 
+    [Name] NVARCHAR(100) NOT NULL, 
+    [Credits] INT NOT NULL
+)
+
+
+CREATE TABLE [dbo].Instructor
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Phone] NVARCHAR(50) NOT NULL, 
+    [Office] NVARCHAR(50) NOT NULL
+)
+
+
+CREATE TABLE [dbo].Section
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Course_Id] INT NOT NULL, 
+    [Days] NVARCHAR(50) NOT NULL, 
+    [TIme] NVARCHAR(50) NOT NULL, 
+    [Instructor_Id] INT NOT NULL, 
+    CONSTRAINT [FK_Section_ToCourse] FOREIGN KEY (Course_Id) REFERENCES Course([Id]), 
+    CONSTRAINT [FK_Section_ToInstructor] FOREIGN KEY (Instructor_Id) REFERENCES Instructor([Id])
+)
+
