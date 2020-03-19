@@ -1,0 +1,15 @@
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\February27th-EntityFramework.exe.config
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\February27th-EntityFramework.exe
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\February27th-EntityFramework.pdb
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.csprojAssemblyReference.cache
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.FacultyForm.resources
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.Form1.resources
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.Properties.Resources.resources
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.csproj.GenerateResource.cache
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.csproj.CopyComplete
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.exe
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.pdb
