@@ -44,16 +44,16 @@
             this.selectedFacultyLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.collegeDataSetInstructor = new February27th_EntityFramework.CollegeDataSetInstructor();
-            this.instructorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.instructorTableAdapter = new February27th_EntityFramework.CollegeDataSetInstructorTableAdapters.InstructorTableAdapter();
-            this.officeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.collegeDataSetInstructor = new February27th_EntityFramework.CollegeDataSetInstructor();
+            this.instructorTableAdapter = new February27th_EntityFramework.CollegeDataSetInstructorTableAdapters.InstructorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +69,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(516, 122);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 27);
             this.button1.TabIndex = 1;
@@ -80,7 +80,7 @@
             // departmentTextBox
             // 
             this.departmentTextBox.Location = new System.Drawing.Point(808, 220);
-            this.departmentTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.departmentTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.departmentTextBox.Name = "departmentTextBox";
             this.departmentTextBox.Size = new System.Drawing.Size(52, 20);
             this.departmentTextBox.TabIndex = 2;
@@ -88,7 +88,7 @@
             // numberTextBox
             // 
             this.numberTextBox.Location = new System.Drawing.Point(808, 250);
-            this.numberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.numberTextBox.Name = "numberTextBox";
             this.numberTextBox.Size = new System.Drawing.Size(52, 20);
             this.numberTextBox.TabIndex = 3;
@@ -96,7 +96,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(808, 286);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(52, 20);
             this.nameTextBox.TabIndex = 4;
@@ -104,7 +104,7 @@
             // creditsTextBox
             // 
             this.creditsTextBox.Location = new System.Drawing.Point(808, 312);
-            this.creditsTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.creditsTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.creditsTextBox.Name = "creditsTextBox";
             this.creditsTextBox.Size = new System.Drawing.Size(52, 20);
             this.creditsTextBox.TabIndex = 5;
@@ -152,7 +152,7 @@
             // courseNumberFilterTextBox
             // 
             this.courseNumberFilterTextBox.Location = new System.Drawing.Point(352, 49);
-            this.courseNumberFilterTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.courseNumberFilterTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.courseNumberFilterTextBox.Name = "courseNumberFilterTextBox";
             this.courseNumberFilterTextBox.Size = new System.Drawing.Size(52, 20);
             this.courseNumberFilterTextBox.TabIndex = 12;
@@ -181,7 +181,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(733, 33);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 32);
             this.button2.TabIndex = 16;
@@ -199,42 +199,20 @@
             this.phoneDataGridViewTextBoxColumn,
             this.officeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.instructorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 208);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 236);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(503, 150);
             this.dataGridView1.TabIndex = 17;
-            // 
-            // collegeDataSetInstructor
-            // 
-            this.collegeDataSetInstructor.DataSetName = "CollegeDataSetInstructor";
-            this.collegeDataSetInstructor.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // instructorBindingSource
-            // 
-            this.instructorBindingSource.DataMember = "Instructor";
-            this.instructorBindingSource.DataSource = this.collegeDataSetInstructor;
-            // 
-            // instructorTableAdapter
-            // 
-            this.instructorTableAdapter.ClearBeforeFill = true;
-            // 
-            // officeDataGridViewTextBoxColumn
-            // 
-            this.officeDataGridViewTextBoxColumn.DataPropertyName = "Office";
-            this.officeDataGridViewTextBoxColumn.HeaderText = "Office";
-            this.officeDataGridViewTextBoxColumn.Name = "officeDataGridViewTextBoxColumn";
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValueNeeded);
+            this.dataGridView1.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValuePushed);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
+            this.dataGridView1.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_NewRowNeeded);
+            this.dataGridView1.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserAddedRow);
+            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -242,6 +220,38 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            // 
+            // officeDataGridViewTextBoxColumn
+            // 
+            this.officeDataGridViewTextBoxColumn.DataPropertyName = "Office";
+            this.officeDataGridViewTextBoxColumn.HeaderText = "Office";
+            this.officeDataGridViewTextBoxColumn.Name = "officeDataGridViewTextBoxColumn";
+            // 
+            // instructorBindingSource
+            // 
+            this.instructorBindingSource.DataMember = "Instructor";
+            this.instructorBindingSource.DataSource = this.collegeDataSetInstructor;
+            // 
+            // collegeDataSetInstructor
+            // 
+            this.collegeDataSetInstructor.DataSetName = "CollegeDataSetInstructor";
+            this.collegeDataSetInstructor.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // instructorTableAdapter
+            // 
+            this.instructorTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -263,14 +273,14 @@
             this.Controls.Add(this.departmentTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Click += new System.EventHandler(this.Form1_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

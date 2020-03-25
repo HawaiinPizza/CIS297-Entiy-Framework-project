@@ -62,7 +62,16 @@ SELECT Id, Name, Phone, Office FROM Instructor WHERE (Id = @Id)</CommandText>
               <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
               <Mapping SourceColumn="Office" DataSetColumn="Office" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="CollegeConnectionString (Settings)" DbObjectName="College.dbo.Instructor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Phone, Office FROM dbo.Instructor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -72,7 +81,7 @@ SELECT Id, Name, Phone, Office FROM Instructor WHERE (Id = @Id)</CommandText>
   <xs:element name="CollegeDataSetInstructor" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CollegeDataSetInstructor" msprop:Generator_UserDSName="CollegeDataSetInstructor">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Instructor" msprop:Generator_TableClassName="InstructorDataTable" msprop:Generator_TableVarName="tableInstructor" msprop:Generator_TablePropName="Instructor" msprop:Generator_RowDeletingName="InstructorRowDeleting" msprop:Generator_RowChangingName="InstructorRowChanging" msprop:Generator_RowEvHandlerName="InstructorRowChangeEventHandler" msprop:Generator_RowDeletedName="InstructorRowDeleted" msprop:Generator_UserTableName="Instructor" msprop:Generator_RowChangedName="InstructorRowChanged" msprop:Generator_RowEvArgName="InstructorRowChangeEvent" msprop:Generator_RowClassName="InstructorRow">
+        <xs:element name="Instructor" msprop:Generator_TableClassName="InstructorDataTable" msprop:Generator_TableVarName="tableInstructor" msprop:Generator_RowChangedName="InstructorRowChanged" msprop:Generator_TablePropName="Instructor" msprop:Generator_RowDeletingName="InstructorRowDeleting" msprop:Generator_RowChangingName="InstructorRowChanging" msprop:Generator_RowEvHandlerName="InstructorRowChangeEventHandler" msprop:Generator_RowDeletedName="InstructorRowDeleted" msprop:Generator_RowClassName="InstructorRow" msprop:Generator_UserTableName="Instructor" msprop:Generator_RowEvArgName="InstructorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
