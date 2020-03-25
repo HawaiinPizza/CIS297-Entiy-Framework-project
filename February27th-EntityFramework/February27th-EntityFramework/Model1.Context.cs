@@ -26,7 +26,10 @@ namespace February27th_EntityFramework
         }
     
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<Instructor> Instructors { get; set; }
+        public virtual DbSet<Major> Majors { get; set; }
         public virtual DbSet<Section> Sections { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
     }
 }

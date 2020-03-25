@@ -22,9 +22,9 @@ namespace February27th_EntityFramework
     
         public int Id { get; set; }
         public string Department { get; set; }
-        public string Number { get; set; }
         public string Name { get; set; }
         public int Credits { get; set; }
+        public string Number { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Section> Sections { get; set; }

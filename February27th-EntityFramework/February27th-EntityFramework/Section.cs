@@ -17,8 +17,8 @@ namespace February27th_EntityFramework
         public int Id { get; set; }
         public int Course_Id { get; set; }
         public string Days { get; set; }
-        public string TIme { get; set; }
-        public int Instructor_Id { get; set; }
+        public string Time { get; set; }
+        public int Instructor_ID { get; set; }
     
         public virtual Course Course { get; set; }
         public virtual Instructor Instructor { get; set; }

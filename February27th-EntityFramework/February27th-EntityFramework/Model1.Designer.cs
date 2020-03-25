@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\EricC\Documents\GitHub\CIS297-Winter2020\February27th-EntityFramework\February27th-EntityFramework\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
