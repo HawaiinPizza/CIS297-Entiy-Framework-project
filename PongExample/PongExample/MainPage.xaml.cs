@@ -59,7 +59,11 @@ namespace PongExample
             }
             else
             {
-                args.DrawingSession.DrawText("Game over! Do you want to play again? ( Y/N )", 400, 400, Colors.Azure);
+                var fontFormat = new Microsoft.Graphics.Canvas.Text.CanvasTextFormat 
+                { 
+                    FontSize = 72 
+                };
+                args.DrawingSession.DrawText("Game over! Do you want to play again? ( Y/N )", 400, 400, Colors.Azure,fontFormat);
             }
         }
 
