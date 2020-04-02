@@ -6,6 +6,7 @@ namespace PongExample
 {
     public class Ball
     {
+        public CanvasBitmap ballImage;
         public bool movingLeftward { get; set; }
         public bool movingDownward { get; set; }
 
@@ -17,7 +18,11 @@ namespace PongExample
         public int BallSpeed { get; set; }
         public void Draw(CanvasDrawingSession drawingSession)
         {
-            drawingSession.DrawEllipse(X, Y, Radius, Radius, Color);
+            if ( ballImage != null )
+            {
+                drawingSession.DrawImage(ballImage, X, Y);
+            }
+            
         }
 
         public void updatePosition()

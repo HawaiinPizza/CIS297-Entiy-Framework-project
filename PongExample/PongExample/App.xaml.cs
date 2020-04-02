@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,7 +31,10 @@ namespace PongExample
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            soundPlayer = new MediaPlayer { Volume = .5 };
         }
+
+        public static MediaPlayer soundPlayer;
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -66,7 +70,7 @@ namespace PongExample
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(TitlePage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

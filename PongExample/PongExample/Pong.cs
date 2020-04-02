@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Media.Core;
 using Windows.UI;
 
 namespace PongExample
@@ -72,6 +73,10 @@ namespace PongExample
             };
         }
 
+        public void setBallImage(CanvasBitmap ballImage)
+        {
+            ball.ballImage = ballImage;
+        }
         public void DrawPong(CanvasDrawingSession drawingSession)
         {
             leftWall.Draw(drawingSession);
@@ -109,13 +114,13 @@ namespace PongExample
                     ball.Y + ball.Radius >= leftWall.Y && ball.Y + ball.Radius <= leftWall.Y + leftWall.Height)
                 {
                     ball.movingLeftward = false;
-                    ball.ChangeColor();
+                    //ball.ChangeColor();
                 }
                 else if (ball.X + ball.Radius >= rightWall.X &&
                     ball.Y + ball.Radius >= rightWall.Y && ball.Y + ball.Radius <= rightWall.Y + leftWall.Height)
                 {
                     ball.movingLeftward = true;
-                    ball.ChangeColor();
+                   // ball.ChangeColor();
                 }
 
                 if (ball.Y - ball.Radius <= computerPaddle.Y + computerPaddle.Height
@@ -123,14 +128,14 @@ namespace PongExample
                     && ball.X + ball.Radius <= computerPaddle.X + computerPaddle.Width)
                 {
                     ball.movingDownward = true;
-                    ball.ChangeColor();
+                    //ball.ChangeColor();
                 }
                 else if (ball.Y + ball.Radius >= userPaddle.Y
                     && ball.X - ball.Radius >= userPaddle.X
                     && ball.X + ball.Radius <= userPaddle.X + userPaddle.Width)
                 {
                     ball.movingDownward = false;
-                    ball.ChangeColor();
+                    //ball.ChangeColor();
                 }
 
                 computerPaddle.X = ball.X - computerPaddle.Width / 2;
@@ -141,6 +146,9 @@ namespace PongExample
                 if ( ball.Y < computerPaddle.Y || ball.Y > userPaddle.Y)
                 {
                     gameOver = true;
+                    App.soundPlayer.Source = MediaSource.CreateFromUri(
+                        new Uri($"ms-appx:///Assets/Wa-wa-wa-sound.mp3"));
+                    App.soundPlayer.Play();
                 }
             }
         }
