@@ -47,6 +47,7 @@
             this.addInstructorButton = new System.Windows.Forms.Button();
             this.goSection = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.studentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
@@ -208,11 +209,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // studentButton
+            // 
+            this.studentButton.Location = new System.Drawing.Point(204, 32);
+            this.studentButton.Name = "studentButton";
+            this.studentButton.Size = new System.Drawing.Size(55, 23);
+            this.studentButton.TabIndex = 27;
+            this.studentButton.Text = "Student";
+            this.studentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.studentButton.UseVisualStyleBackColor = true;
+            this.studentButton.Click += new System.EventHandler(this.studentButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.studentButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.goSection);
             this.Controls.Add(this.addInstructorButton);
@@ -256,6 +269,7 @@
         private System.Windows.Forms.Button addInstructorButton;
         private System.Windows.Forms.Button goSection;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button studentButton;
     }
 }
 

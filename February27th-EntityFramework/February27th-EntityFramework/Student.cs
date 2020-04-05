@@ -18,26 +18,17 @@ using System;
 public partial class Student
 {
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Student()
-    {
-
-        this.Enrollments = new HashSet<Enrollment>();
-
-    }
-
-
     public int UniqueID { get; set; }
 
     public int Major { get; set; }
 
     public string Name { get; set; }
 
+    public int ID { get; set; }
 
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Enrollment> Enrollments { get; set; }
+    public virtual Enrollment Enrollment { get; set; }
 
     public virtual Major Major1 { get; set; }
 

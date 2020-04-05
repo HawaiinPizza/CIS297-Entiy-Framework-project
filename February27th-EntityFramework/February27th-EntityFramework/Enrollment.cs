@@ -20,15 +20,17 @@ public partial class Enrollment
 
     public int Id { get; set; }
 
-    public int UniqueID { get; set; }
+    public int StudentID { get; set; }
 
     public int InstructorID { get; set; }
 
+    public double Grade { get; set; }
 
 
-    public virtual Instructor Instructor { get; set; }
 
     public virtual Student Student { get; set; }
+
+    public virtual Instructor Instructor { get; set; }
 
 }
 

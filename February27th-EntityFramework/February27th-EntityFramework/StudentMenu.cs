@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace February27th_EntityFramework
 {
-    public partial class Form1 : Form
+    public partial class Form4 : Form
     {
         private CollegeEntities collegeEntities;
-        public Form1()
+        public Form4()
         {
             InitializeComponent();
             collegeEntities = new CollegeEntities();
@@ -38,14 +38,18 @@ namespace February27th_EntityFramework
             facultyForm.Show();
         }
 
-        private void Form1_Enter(object sender, EventArgs e)
+        private void Form4_Enter(object sender, EventArgs e)
         {
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form4_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'collegeDataSetInstructor.Instructor' table. You can move, or remove it, as needed.
-            this.instructorTableAdapter.Fill(this.collegeDataSetInstructor.Instructor);
+            // TODO: This line of code loads data into the 'collegeDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter1.Fill(this.collegeDataSet.Student);
+            // TODO: This line of code loads data into the 'collegeSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.collegeSet.Student);
+            this.majorTableAdapter.Fill(this.collegeSet.Major);
+            this.majorTableAdapter.Fill(this.collegeSet.Major);
 
         }
 
@@ -90,39 +94,31 @@ namespace February27th_EntityFramework
         {
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.instructorTableAdapter.FillBy(this.collegeDataSetInstructor.Instructor);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
 
         // From stuff onward is reproduacable code.
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             int ID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            var query = collegeEntities.Instructors.Where(s => s.Id == ID);
-
-
+            var query = collegeEntities.Courses.Where(s => s.Id == ID);
             switch (e.ColumnIndex)
             {
+                case 2:
+                    query.FirstOrDefault().Department = Change;
+                    break;
                 case 1:
                     query.FirstOrDefault().Name = Change;
                     break;
-                case 2:
-                    query.FirstOrDefault().Phone = Change;
-                    break;
                 case 3:
-                    query.FirstOrDefault().Office = Change;
+                    query.FirstOrDefault().Credits = Int32.Parse(Change);
+                    break;
+                case 4:
+                    query.FirstOrDefault().Number = Change;
                     break;
             }
+
+
+            query.FirstOrDefault().Name = Change;
             collegeEntities.SaveChanges();
 
         }
@@ -130,18 +126,18 @@ namespace February27th_EntityFramework
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-            var query=collegeEntities.Instructors.Where(s => s.Id == DeleteID);
-            collegeEntities.Instructors.Remove(query.FirstOrDefault());
+            var query=collegeEntities.Courses.Where(s => s.Id == DeleteID);
+            collegeEntities.Courses.Remove(query.FirstOrDefault());
             collegeEntities.SaveChanges();
             //MessageBox.Show(query.FirstOrDefault().Id.ToString());
         }
 
-        private void addInstructorButton_Click(object sender, EventArgs e)
+        private void addStudentButton_Click(object sender, EventArgs e)
         {
-            if(
-                NameLabel.Text.Length==0 || 
-                OfficeLabel.Text.Length==0 || 
-                PhoneLabel.Text.Length==0 
+            if (
+                textName.Text.Length == 0 ||
+                textUniq.Text.Length == 0 ||
+                textMaj.Text.Length == 0
                 )
             {
                 MessageBox.Show("One of the data fields is eMPTY");
@@ -149,16 +145,23 @@ namespace February27th_EntityFramework
             }
             else
             {
-                Instructor temp = new Instructor()
-                {
-                    Name = NameLabel.Text,
-                    Office = OfficeLabel.Text,
-                    Phone = PhoneLabel.Text,
-                };
-                collegeEntities.Instructors.Add(temp);
-                collegeEntities.SaveChanges();
-                dataGridView1.DataSource = collegeEntities.Instructors.ToList();
-                dataGridView1.Refresh();
+                //try {
+                    Student temp = new Student()
+                    {
+                        Name = textName.Text,
+                        Major = Int32.Parse(textMaj.Text),
+                        UniqueID = Int32.Parse(textUniq.Text)
+
+                    };
+                    collegeEntities.Students.Add(temp);
+                    collegeEntities.SaveChanges();
+                    dataGridView1.DataSource = collegeEntities.Students.ToList();
+                    dataGridView1.Refresh();
+                //}
+                //catch (Exception j)
+                //{
+                    //MessageBox.Show("You either have UniqueID as a string, or Major is non exisent. I cna't tell I'm a robot\n"+j.Message);
+                //}
             }
         }
 
@@ -171,19 +174,8 @@ namespace February27th_EntityFramework
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form3 temp = new Form3();
-            temp.Show();
-
-        }
-
-        private void studentButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form4 temp = new Form4();
-            temp.Show();
 
         }
     }

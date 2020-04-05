@@ -191,7 +191,6 @@
             this.tableAdapterManager.InstructorTableAdapter = null;
             this.tableAdapterManager.MajorTableAdapter = null;
             this.tableAdapterManager.SectionTableAdapter = this.sectionTableAdapter;
-            this.tableAdapterManager.StudentTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = February27th_EntityFramework.CollegeDataSetSectionTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // sectionBindingSource
