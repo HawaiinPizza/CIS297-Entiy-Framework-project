@@ -45,13 +45,18 @@
             this.tableAdapterManager = new February27th_EntityFramework.CollegeDataSetSectionTableAdapters.TableAdapterManager();
             this.sectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Course_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Days = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instructor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sectionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.collegeSet = new February27th_EntityFramework.CollegeSet();
             this.sectionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.instructorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.instructorTableAdapter1 = new February27th_EntityFramework.CollegeDataSetSectionTableAdapters.InstructorTableAdapter();
-            this.collegeSet = new February27th_EntityFramework.CollegeSet();
             this.instructorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.instructorTableAdapter2 = new February27th_EntityFramework.CollegeSetTableAdapters.InstructorTableAdapter();
-            this.sectionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sectionTableAdapter1 = new February27th_EntityFramework.CollegeSetTableAdapters.SectionTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,16 +64,11 @@
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.officeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Course_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Days = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instructor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.courseTableAdapter = new February27th_EntityFramework.CollegeSetTableAdapters.CourseTableAdapter();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -80,11 +80,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
@@ -217,6 +217,48 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(581, 150);
             this.dataGridView1.TabIndex = 26;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit_1);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Course_Id
+            // 
+            this.Course_Id.DataPropertyName = "Course_Id";
+            this.Course_Id.HeaderText = "Course_Id";
+            this.Course_Id.Name = "Course_Id";
+            // 
+            // Days
+            // 
+            this.Days.DataPropertyName = "Days";
+            this.Days.HeaderText = "Days";
+            this.Days.Name = "Days";
+            // 
+            // Time
+            // 
+            this.Time.DataPropertyName = "Time";
+            this.Time.HeaderText = "Time";
+            this.Time.Name = "Time";
+            // 
+            // Instructor_ID
+            // 
+            this.Instructor_ID.DataPropertyName = "Instructor_ID";
+            this.Instructor_ID.HeaderText = "Instructor_ID";
+            this.Instructor_ID.Name = "Instructor_ID";
+            // 
+            // sectionBindingSource2
+            // 
+            this.sectionBindingSource2.DataMember = "Section";
+            this.sectionBindingSource2.DataSource = this.collegeSet;
+            // 
+            // collegeSet
+            // 
+            this.collegeSet.DataSetName = "CollegeSet";
+            this.collegeSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sectionBindingSource1
             // 
@@ -232,11 +274,6 @@
             // 
             this.instructorTableAdapter1.ClearBeforeFill = true;
             // 
-            // collegeSet
-            // 
-            this.collegeSet.DataSetName = "CollegeSet";
-            this.collegeSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // instructorBindingSource2
             // 
             this.instructorBindingSource2.DataMember = "Instructor";
@@ -245,11 +282,6 @@
             // instructorTableAdapter2
             // 
             this.instructorTableAdapter2.ClearBeforeFill = true;
-            // 
-            // sectionBindingSource2
-            // 
-            this.sectionBindingSource2.DataMember = "Section";
-            this.sectionBindingSource2.DataSource = this.collegeSet;
             // 
             // sectionTableAdapter1
             // 
@@ -313,37 +345,6 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "Instructor";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Course_Id
-            // 
-            this.Course_Id.DataPropertyName = "Course_Id";
-            this.Course_Id.HeaderText = "Course_Id";
-            this.Course_Id.Name = "Course_Id";
-            // 
-            // Days
-            // 
-            this.Days.DataPropertyName = "Days";
-            this.Days.HeaderText = "Days";
-            this.Days.Name = "Days";
-            // 
-            // Time
-            // 
-            this.Time.DataPropertyName = "Time";
-            this.Time.HeaderText = "Time";
-            this.Time.Name = "Time";
-            // 
-            // Instructor_ID
-            // 
-            this.Instructor_ID.DataPropertyName = "Instructor_ID";
-            this.Instructor_ID.HeaderText = "Instructor_ID";
-            this.Instructor_ID.Name = "Instructor_ID";
-            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -376,6 +377,11 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataMember = "Course";
+            this.courseBindingSource.DataSource = this.collegeSet;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -385,11 +391,6 @@
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 30;
             this.label5.Text = "Course";
-            // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataMember = "Course";
-            this.courseBindingSource.DataSource = this.collegeSet;
             // 
             // courseTableAdapter
             // 
@@ -462,11 +463,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetSection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();

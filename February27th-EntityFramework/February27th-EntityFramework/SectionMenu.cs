@@ -152,23 +152,27 @@ namespace February27th_EntityFramework
 
         }
 
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
         {
+            MessageBox.Show("Incredible point");
             string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             int ID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            var query = collegeEntities.Instructors.Where(s => s.Id == ID);
+            var query = collegeEntities.Sections.Where(s => s.Id == ID);
 
 
             switch (e.ColumnIndex)
             {
                 case 1:
-                    query.FirstOrDefault().Name = Change;
+                    query.FirstOrDefault().Course_Id = Int32.Parse(Change);
+                    break;
+                case 4:
+                    query.FirstOrDefault().Instructor_ID = Int32.Parse(Change);
+                                            break;
+                case 3:
+                    query.FirstOrDefault().Days = Change;
                     break;
                 case 2:
-                    query.FirstOrDefault().Phone = Change;
-                    break;
-                case 3:
-                    query.FirstOrDefault().Office = Change;
+                    query.FirstOrDefault().Time = Change;
                     break;
             }
             collegeEntities.SaveChanges();
@@ -223,5 +227,6 @@ namespace February27th_EntityFramework
             }
 
         }
+
     }
 }
