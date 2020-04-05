@@ -1,74 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CollegeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="CollegeEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Courses" EntityType="CollegeModel.Course" />
-    <EntitySet Name="Enrollments" EntityType="CollegeModel.Enrollment" />
-    <EntitySet Name="Instructors" EntityType="CollegeModel.Instructor" />
-    <EntitySet Name="Majors" EntityType="CollegeModel.Major" />
-    <EntitySet Name="Sections" EntityType="CollegeModel.Section" />
-    <EntitySet Name="Students" EntityType="CollegeModel.Student" />
-    <AssociationSet Name="FK_Section_ToTable" Association="CollegeModel.FK_Section_ToTable">
-      <End Role="Course" EntitySet="Courses" />
-      <End Role="Section" EntitySet="Sections" />
-    </AssociationSet>
-    <AssociationSet Name="ID" Association="CollegeModel.ID">
-      <End Role="Student" EntitySet="Students" />
-      <End Role="Enrollment" EntitySet="Enrollments" />
-    </AssociationSet>
-    <AssociationSet Name="InstructorID" Association="CollegeModel.InstructorID">
-      <End Role="Instructor" EntitySet="Instructors" />
-      <End Role="Enrollment" EntitySet="Enrollments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Instructor" Association="CollegeModel.FK_Instructor">
-      <End Role="Instructor" EntitySet="Instructors" />
-      <End Role="Section" EntitySet="Sections" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Major" Association="CollegeModel.FK_Major">
-      <End Role="Major" EntitySet="Majors" />
-      <End Role="Student" EntitySet="Students" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="Course">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Credits" Type="Int32" Nullable="false" />
-    <Property Name="Number" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="Sections" Relationship="CollegeModel.FK_Section_ToTable" FromRole="Course" ToRole="Section" />
+    <Property Name="Number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Sections" Relationship="Self.FK_Section_ToTable" FromRole="Course" ToRole="Section" />
   </EntityType>
   <EntityType Name="Enrollment">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="UniqueID" Type="Int32" Nullable="false" />
     <Property Name="InstructorID" Type="Int32" Nullable="false" />
-    <Property Name="Grade" Type="Double" Nullable="false" />
-    <NavigationProperty Name="Student" Relationship="CollegeModel.ID" FromRole="Enrollment" ToRole="Student" />
-    <NavigationProperty Name="Instructor" Relationship="CollegeModel.InstructorID" FromRole="Enrollment" ToRole="Instructor" />
+    <NavigationProperty Name="Instructor" Relationship="Self.InstructorID" FromRole="Enrollment" ToRole="Instructor" />
+    <NavigationProperty Name="Student" Relationship="Self.UniqueID" FromRole="Enrollment" ToRole="Student" />
   </EntityType>
   <EntityType Name="Instructor">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Office" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="Enrollments" Relationship="CollegeModel.InstructorID" FromRole="Instructor" ToRole="Enrollment" />
-    <NavigationProperty Name="Sections" Relationship="CollegeModel.FK_Instructor" FromRole="Instructor" ToRole="Section" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Office" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Enrollments" Relationship="Self.InstructorID" FromRole="Instructor" ToRole="Enrollment" />
+    <NavigationProperty Name="Sections" Relationship="Self.FK_Instructor" FromRole="Instructor" ToRole="Section" />
   </EntityType>
   <EntityType Name="Major">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Type" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="Students" Relationship="CollegeModel.FK_Major" FromRole="Major" ToRole="Student" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Major" FromRole="Major" ToRole="Student" />
   </EntityType>
   <EntityType Name="Section">
     <Key>
@@ -76,26 +47,25 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Course_Id" Type="Int32" Nullable="false" />
-    <Property Name="Days" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Days" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Instructor_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Course" Relationship="CollegeModel.FK_Section_ToTable" FromRole="Section" ToRole="Course" />
-    <NavigationProperty Name="Instructor" Relationship="CollegeModel.FK_Instructor" FromRole="Section" ToRole="Instructor" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_Section_ToTable" FromRole="Section" ToRole="Course" />
+    <NavigationProperty Name="Instructor" Relationship="Self.FK_Instructor" FromRole="Section" ToRole="Instructor" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="UniqueID" />
     </Key>
     <Property Name="UniqueID" Type="Int32" Nullable="false" />
     <Property Name="Major" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="Enrollment" Relationship="CollegeModel.ID" FromRole="Student" ToRole="Enrollment" />
-    <NavigationProperty Name="Major1" Relationship="CollegeModel.FK_Major" FromRole="Student" ToRole="Major" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Enrollments" Relationship="Self.UniqueID" FromRole="Student" ToRole="Enrollment" />
+    <NavigationProperty Name="Major1" Relationship="Self.FK_Major" FromRole="Student" ToRole="Major" />
   </EntityType>
   <Association Name="FK_Section_ToTable">
-    <End Type="CollegeModel.Course" Role="Course" Multiplicity="1" />
-    <End Type="CollegeModel.Section" Role="Section" Multiplicity="*" />
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Section" Type="Self.Section" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Course">
         <PropertyRef Name="Id" />
@@ -105,21 +75,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ID">
-    <End Type="CollegeModel.Student" Role="Student" Multiplicity="1" />
-    <End Type="CollegeModel.Enrollment" Role="Enrollment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Student">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Enrollment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="InstructorID">
-    <End Type="CollegeModel.Instructor" Role="Instructor" Multiplicity="1" />
-    <End Type="CollegeModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Instructor">
         <PropertyRef Name="Id" />
@@ -129,9 +87,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="UniqueID">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="UniqueID" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="UniqueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Instructor">
-    <End Type="CollegeModel.Instructor" Role="Instructor" Multiplicity="1" />
-    <End Type="CollegeModel.Section" Role="Section" Multiplicity="*" />
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="Section" Type="Self.Section" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Instructor">
         <PropertyRef Name="Id" />
@@ -142,8 +112,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Major">
-    <End Type="CollegeModel.Major" Role="Major" Multiplicity="1" />
-    <End Type="CollegeModel.Student" Role="Student" Multiplicity="*" />
+    <End Role="Major" Type="Self.Major" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Major">
         <PropertyRef Name="Id" />
@@ -153,4 +123,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="CollegeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="Self.Course" />
+    <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
+    <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+    <EntitySet Name="Majors" EntityType="Self.Major" />
+    <EntitySet Name="Sections" EntityType="Self.Section" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <AssociationSet Name="FK_Section_ToTable" Association="Self.FK_Section_ToTable">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="InstructorID" Association="Self.InstructorID">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="UniqueID" Association="Self.UniqueID">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Instructor" Association="Self.FK_Instructor">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Major" Association="Self.FK_Major">
+      <End Role="Major" EntitySet="Majors" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

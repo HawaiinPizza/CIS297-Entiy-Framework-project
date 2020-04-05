@@ -15,9 +15,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="UniqueID" Type="int" Nullable="false" />
     <Property Name="InstructorID" Type="int" Nullable="false" />
-    <Property Name="Grade" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Instructor">
     <Key>
@@ -48,9 +47,8 @@
   </EntityType>
   <EntityType Name="Student">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="UniqueID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UniqueID" Type="int" Nullable="false" />
     <Property Name="Major" Type="int" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
@@ -91,18 +89,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ID">
-    <End Role="Student" Type="Self.Student" Multiplicity="1" />
-    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Student">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Enrollment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="InstructorID">
     <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
     <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
@@ -112,6 +98,18 @@
       </Principal>
       <Dependent Role="Enrollment">
         <PropertyRef Name="InstructorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UniqueID">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="UniqueID" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="UniqueID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -134,12 +132,12 @@
       <End Role="Course" EntitySet="Course" />
       <End Role="Section" EntitySet="Section" />
     </AssociationSet>
-    <AssociationSet Name="ID" Association="Self.ID">
-      <End Role="Student" EntitySet="Student" />
-      <End Role="Enrollment" EntitySet="Enrollment" />
-    </AssociationSet>
     <AssociationSet Name="InstructorID" Association="Self.InstructorID">
       <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="UniqueID" Association="Self.UniqueID">
+      <End Role="Student" EntitySet="Student" />
       <End Role="Enrollment" EntitySet="Enrollment" />
     </AssociationSet>
   </EntityContainer>

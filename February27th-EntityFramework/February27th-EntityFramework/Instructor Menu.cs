@@ -178,13 +178,5 @@ namespace February27th_EntityFramework
             temp.Show();
 
         }
-
-        private void studentButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form4 temp = new Form4();
-            temp.Show();
-
-        }
     }
 }
