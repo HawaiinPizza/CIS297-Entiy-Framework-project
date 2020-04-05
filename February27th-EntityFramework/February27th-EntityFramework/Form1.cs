@@ -166,5 +166,31 @@ namespace February27th_EntityFramework
             collegeEntities.SaveChanges();
 
         }
+
+        private void addInstructorButton_Click(object sender, EventArgs e)
+        {
+            if(
+                NameLabel.Text.Length==0 || 
+                OfficeLabel.Text.Length==0 || 
+                PhoneLabel.Text.Length==0 
+                )
+            {
+                MessageBox.Show("One of the data fields is eMPTY");
+
+            }
+            else
+            {
+                Instructor temp = new Instructor()
+                {
+                    Name = NameLabel.Text,
+                    Office = OfficeLabel.Text,
+                    Phone = PhoneLabel.Text,
+                };
+                collegeEntities.Instructors.Add(temp);
+                collegeEntities.SaveChanges();
+                dataGridView1.DataSource = collegeEntities.Instructors.ToList();
+                dataGridView1.Refresh();
+            }
+        }
     }
 }

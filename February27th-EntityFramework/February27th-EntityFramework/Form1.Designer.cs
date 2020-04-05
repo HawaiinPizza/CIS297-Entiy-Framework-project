@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.addInstructorButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
@@ -172,11 +173,22 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Office";
             // 
+            // addInstructorButton
+            // 
+            this.addInstructorButton.Location = new System.Drawing.Point(535, 178);
+            this.addInstructorButton.Name = "addInstructorButton";
+            this.addInstructorButton.Size = new System.Drawing.Size(182, 23);
+            this.addInstructorButton.TabIndex = 24;
+            this.addInstructorButton.Text = "Add Instructor";
+            this.addInstructorButton.UseVisualStyleBackColor = true;
+            this.addInstructorButton.Click += new System.EventHandler(this.addInstructorButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.addInstructorButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -214,6 +226,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button addInstructorButton;
     }
 }
 
