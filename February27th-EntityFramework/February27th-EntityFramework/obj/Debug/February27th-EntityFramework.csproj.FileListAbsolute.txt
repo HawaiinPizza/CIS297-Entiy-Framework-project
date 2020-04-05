@@ -14,3 +14,4 @@ C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-proj
 C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.exe
 C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.pdb
 C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.Form2.resources
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.Form3.resources

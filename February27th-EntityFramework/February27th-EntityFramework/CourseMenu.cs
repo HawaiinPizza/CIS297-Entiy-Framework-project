@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace February27th_EntityFramework
 {
-    public partial class Form1 : Form
+    public partial class Form3 : Form
     {
         private CollegeEntities collegeEntities;
-        public Form1()
+        public Form3()
         {
             InitializeComponent();
             collegeEntities = new CollegeEntities();
@@ -38,12 +38,16 @@ namespace February27th_EntityFramework
             facultyForm.Show();
         }
 
-        private void Form1_Enter(object sender, EventArgs e)
+        private void Form3_Enter(object sender, EventArgs e)
         {
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'collegeSet.Section' table. You can move, or remove it, as needed.
+            this.sectionTableAdapter.Fill(this.collegeSet.Section);
+            // TODO: This line of code loads data into the 'collegeSet.Course' table. You can move, or remove it, as needed.
+            this.courseTableAdapter.Fill(this.collegeSet.Course);
             // TODO: This line of code loads data into the 'collegeDataSetInstructor.Instructor' table. You can move, or remove it, as needed.
             this.instructorTableAdapter.Fill(this.collegeDataSetInstructor.Instructor);
 
@@ -108,21 +112,25 @@ namespace February27th_EntityFramework
         {
             string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             int ID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            var query = collegeEntities.Instructors.Where(s => s.Id == ID);
-
-
+            var query = collegeEntities.Courses.Where(s => s.Id == ID);
             switch (e.ColumnIndex)
             {
+                case 2:
+                    query.FirstOrDefault().Department = Change;
+                    break;
                 case 1:
                     query.FirstOrDefault().Name = Change;
                     break;
-                case 2:
-                    query.FirstOrDefault().Phone = Change;
-                    break;
                 case 3:
-                    query.FirstOrDefault().Office = Change;
+                    query.FirstOrDefault().Credits = Int32.Parse(Change);
+                    break;
+                case 4:
+                    query.FirstOrDefault().Number = Change;
                     break;
             }
+
+
+            query.FirstOrDefault().Name = Change;
             collegeEntities.SaveChanges();
 
         }
@@ -130,18 +138,16 @@ namespace February27th_EntityFramework
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-            var query=collegeEntities.Instructors.Where(s => s.Id == DeleteID);
-            collegeEntities.Instructors.Remove(query.FirstOrDefault());
+            var query=collegeEntities.Courses.Where(s => s.Id == DeleteID);
+            collegeEntities.Courses.Remove(query.FirstOrDefault());
             collegeEntities.SaveChanges();
             //MessageBox.Show(query.FirstOrDefault().Id.ToString());
         }
 
         private void addInstructorButton_Click(object sender, EventArgs e)
         {
-            if(
-                NameLabel.Text.Length==0 || 
-                OfficeLabel.Text.Length==0 || 
-                PhoneLabel.Text.Length==0 
+            if (
+                NameLabel.Text.Length == 0
                 )
             {
                 MessageBox.Show("One of the data fields is eMPTY");
@@ -149,16 +155,23 @@ namespace February27th_EntityFramework
             }
             else
             {
-                Instructor temp = new Instructor()
+                try {
+                    Course temp = new Course()
+                    {
+                        Name = NameLabel.Text,
+                        Department = DepartmentLabel.Text,
+                        Credits = Int32.Parse(textBox2.Text),
+                        Number = textBox1.Text,
+                    };
+                    collegeEntities.Courses.Add(temp);
+                    collegeEntities.SaveChanges();
+                    dataGridView1.DataSource = collegeEntities.Courses.ToList();
+                    dataGridView1.Refresh();
+                }
+                catch (Exception j)
                 {
-                    Name = NameLabel.Text,
-                    Office = OfficeLabel.Text,
-                    Phone = PhoneLabel.Text,
-                };
-                collegeEntities.Instructors.Add(temp);
-                collegeEntities.SaveChanges();
-                dataGridView1.DataSource = collegeEntities.Instructors.ToList();
-                dataGridView1.Refresh();
+                    MessageBox.Show("You have credits as a string, not an interger");
+                }
             }
         }
 
@@ -171,11 +184,8 @@ namespace February27th_EntityFramework
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form3 temp = new Form3();
-            temp.Show();
 
         }
     }

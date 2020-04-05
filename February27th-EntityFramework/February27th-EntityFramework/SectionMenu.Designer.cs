@@ -211,7 +211,7 @@
             this.Time,
             this.Instructor_ID});
             this.dataGridView1.DataSource = this.sectionBindingSource2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 374);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 374);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

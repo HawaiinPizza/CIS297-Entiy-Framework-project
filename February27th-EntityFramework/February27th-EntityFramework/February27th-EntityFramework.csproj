@@ -86,6 +86,12 @@
     <Compile Include="FacultyForm.Designer.cs">
       <DependentUpon>FacultyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseMenu.Designer.cs">
+      <DependentUpon>CourseMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="SectionMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="FacultyForm.resx">
       <DependentUpon>FacultyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseMenu.resx">
+      <DependentUpon>CourseMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SectionMenu.resx">
       <DependentUpon>SectionMenu.cs</DependentUpon>
