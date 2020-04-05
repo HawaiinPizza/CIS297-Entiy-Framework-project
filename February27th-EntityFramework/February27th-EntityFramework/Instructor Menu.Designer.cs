@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.addInstructorButton = new System.Windows.Forms.Button();
+            this.goSection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
@@ -92,6 +93,7 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -183,11 +185,23 @@
             this.addInstructorButton.UseVisualStyleBackColor = true;
             this.addInstructorButton.Click += new System.EventHandler(this.addInstructorButton_Click);
             // 
+            // goSection
+            // 
+            this.goSection.Location = new System.Drawing.Point(296, 32);
+            this.goSection.Name = "goSection";
+            this.goSection.Size = new System.Drawing.Size(55, 23);
+            this.goSection.TabIndex = 25;
+            this.goSection.Text = "Section";
+            this.goSection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.goSection.UseVisualStyleBackColor = true;
+            this.goSection.Click += new System.EventHandler(this.goSection_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.goSection);
             this.Controls.Add(this.addInstructorButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -227,6 +241,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addInstructorButton;
+        private System.Windows.Forms.Button goSection;
     }
 }
 

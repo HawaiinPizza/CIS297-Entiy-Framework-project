@@ -13,7 +13,7 @@ namespace February27th_EntityFramework
 {
     public partial class Form1 : Form
     {
-        CollegeEntities collegeEntities;
+        private CollegeEntities collegeEntities;
         public Form1()
         {
             InitializeComponent();
@@ -22,20 +22,6 @@ namespace February27th_EntityFramework
 
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var College = new CollegeEntities();
-            for(int i=0; i < dataGridView1.Rows.Count-1; i++)
-            {
-                if (0 > Int32.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString()))
-                {
-                }
-                else
-                    MessageBox.Show("I can't even beat my dick");
-            }
-            College.SaveChanges();
-
-        }
 
         private void courseNumberFilterTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -74,43 +60,18 @@ namespace February27th_EntityFramework
 
         }
 
-        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-            var query=collegeEntities.Instructors.Where(s => s.Id == DeleteID);
-            collegeEntities.Instructors.Remove(query.FirstOrDefault());
-            collegeEntities.SaveChanges();
-            //MessageBox.Show(query.FirstOrDefault().Id.ToString());
-
-        }
-
 
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(e.ToString());
 
         }
 
         private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
-            MessageBox.Show("WOW");
         }
 
         private void dataGridView1_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            /*
-                    Instructor newInstructor = new Instructor()
-                    {
-                        Id = Int32.Parse(e.Row.Cells[0].Value.ToString()),
-                        Name = e.Row.Cells[1].Value.ToString(),
-                        Phone = e.Row.Cells[2].Value.ToString(),
-                        Office = e.Row.Cells[3].Value.ToString(),
-                    }
-                    ;
-                    collegeEntities.Instructors.Add(newInstructor);
-            collegeEntities.SaveChanges();
-            */
-
         }
 
         private void dataGridView1_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
@@ -123,12 +84,10 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //MessageBox.Show("Complete");
         }
 
         private void dataGridView1_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
         {
-            //MessageBox.Show("CellNeeded");
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -144,6 +103,7 @@ namespace February27th_EntityFramework
 
         }
 
+        // From stuff onward is reproduacable code.
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
@@ -165,6 +125,15 @@ namespace February27th_EntityFramework
             }
             collegeEntities.SaveChanges();
 
+        }
+
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
+            var query=collegeEntities.Instructors.Where(s => s.Id == DeleteID);
+            collegeEntities.Instructors.Remove(query.FirstOrDefault());
+            collegeEntities.SaveChanges();
+            //MessageBox.Show(query.FirstOrDefault().Id.ToString());
         }
 
         private void addInstructorButton_Click(object sender, EventArgs e)
@@ -191,6 +160,15 @@ namespace February27th_EntityFramework
                 dataGridView1.DataSource = collegeEntities.Instructors.ToList();
                 dataGridView1.Refresh();
             }
+        }
+
+        private void goSection_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 temp = new Form2();
+            temp.Show();
+
+
         }
     }
 }
