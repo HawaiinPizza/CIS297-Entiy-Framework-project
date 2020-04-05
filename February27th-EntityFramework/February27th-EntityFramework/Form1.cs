@@ -18,31 +18,9 @@ namespace February27th_EntityFramework
         {
             InitializeComponent();
             collegeEntities = new CollegeEntities();
-            UpdateCourseList();
         }
 
 
-        private void UpdateCourseList(string courseNumberFilter = "")
-        {
-            label1.Text = $"Courses:{Environment.NewLine}";
-
-            foreach (var course in collegeEntities.Courses.Where( c => c.Sections.Count > 0 ))
-            {
-                if (courseNumberFilter != "" &&
-                    !course.Number.StartsWith(courseNumberFilter))
-                {
-                    continue;
-                }
-                    
-                
-                label1.Text += $"{course} {Environment.NewLine}";
-                foreach (var section in course.Sections)
-                {
-                    label1.Text += $"\t{section.Instructor.Name} {section.Days} {section.Time}{Environment.NewLine}";
-                }
-               
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,7 +39,6 @@ namespace February27th_EntityFramework
 
         private void courseNumberFilterTextBox_TextChanged(object sender, EventArgs e)
         {
-            UpdateCourseList(courseNumberFilterTextBox.Text);
 
         }
 
@@ -116,7 +93,7 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
-
+            MessageBox.Show("WOW");
         }
 
         private void dataGridView1_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
@@ -164,6 +141,29 @@ namespace February27th_EntityFramework
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            int ID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            var query = collegeEntities.Instructors.Where(s => s.Id == ID);
+
+
+            switch (e.ColumnIndex)
+            {
+                case 1:
+                    query.FirstOrDefault().Name = Change;
+                    break;
+                case 2:
+                    query.FirstOrDefault().Phone = Change;
+                    break;
+                case 3:
+                    query.FirstOrDefault().Office = Change;
+                    break;
+            }
+            collegeEntities.SaveChanges();
 
         }
     }
