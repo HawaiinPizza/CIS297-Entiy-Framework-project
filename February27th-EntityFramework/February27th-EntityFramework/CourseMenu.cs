@@ -188,5 +188,14 @@ namespace February27th_EntityFramework
         {
 
         }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            var searchString = filterTextBox.Text;
+            var courses = from s in collegeEntities.Courses
+                           select s;
+            courses = courses.Where(s => s.Department.Contains(searchString));
+            dataGridView1.DataSource = courses.ToList();
+        }
     }
 }

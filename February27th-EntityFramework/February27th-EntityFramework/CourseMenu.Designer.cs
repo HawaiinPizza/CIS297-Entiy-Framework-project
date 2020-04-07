@@ -33,6 +33,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Credits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collegeSet = new February27th_EntityFramework.CollegeSet();
             this.instructorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,13 +51,13 @@
             this.courseTableAdapter = new February27th_EntityFramework.CollegeSetTableAdapters.CourseTableAdapter();
             this.sectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sectionTableAdapter = new February27th_EntityFramework.CollegeSetTableAdapters.SectionTableAdapter();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Credits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.filterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).BeginInit();
@@ -114,6 +117,24 @@
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // Department
+            // 
+            this.Department.DataPropertyName = "Department";
+            this.Department.HeaderText = "Department";
+            this.Department.Name = "Department";
+            // 
+            // Credits
+            // 
+            this.Credits.DataPropertyName = "Credits";
+            this.Credits.HeaderText = "Credits";
+            this.Credits.Name = "Credits";
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Number";
+            this.Number.Name = "Number";
             // 
             // courseBindingSource1
             // 
@@ -210,24 +231,6 @@
             // 
             this.sectionTableAdapter.ClearBeforeFill = true;
             // 
-            // Department
-            // 
-            this.Department.DataPropertyName = "Department";
-            this.Department.HeaderText = "Department";
-            this.Department.Name = "Department";
-            // 
-            // Credits
-            // 
-            this.Credits.DataPropertyName = "Credits";
-            this.Credits.HeaderText = "Credits";
-            this.Credits.Name = "Credits";
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Number";
-            this.Number.Name = "Number";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -261,11 +264,40 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 28;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(703, 452);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Department";
+            // 
+            // filterTextBox
+            // 
+            this.filterTextBox.Location = new System.Drawing.Point(785, 452);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(100, 20);
+            this.filterTextBox.TabIndex = 31;
+            // 
+            // filterButton
+            // 
+            this.filterButton.Location = new System.Drawing.Point(703, 488);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(182, 23);
+            this.filterButton.TabIndex = 32;
+            this.filterButton.Text = "Filter By Department";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.filterTextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
@@ -322,6 +354,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.Button filterButton;
     }
 }
 
