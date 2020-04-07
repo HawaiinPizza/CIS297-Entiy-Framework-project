@@ -15,9 +15,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StudentID" Type="int" Nullable="false" />
     <Property Name="InstructorID" Type="int" Nullable="false" />
     <Property Name="SectionID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
     <Property Name="Grade" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Instructor">
@@ -115,7 +115,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="UniqueID">
+  <Association Name="StudentID">
     <End Role="Student" Type="Self.Student" Multiplicity="1" />
     <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -154,7 +154,7 @@
       <End Role="Section" EntitySet="Section" />
       <End Role="Enrollment" EntitySet="Enrollment" />
     </AssociationSet>
-    <AssociationSet Name="UniqueID" Association="Self.UniqueID">
+    <AssociationSet Name="StudentID" Association="Self.StudentID">
       <End Role="Student" EntitySet="Student" />
       <End Role="Enrollment" EntitySet="Enrollment" />
     </AssociationSet>

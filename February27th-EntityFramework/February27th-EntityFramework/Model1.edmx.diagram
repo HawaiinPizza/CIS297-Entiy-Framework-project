@@ -14,7 +14,7 @@
         <AssociationConnector Association="CollegeModel.FK_Section_ToTable" />
         <AssociationConnector Association="CollegeModel.InstructorID" />
         <AssociationConnector Association="CollegeModel.SectionID" />
-        <AssociationConnector Association="CollegeModel.UniqueID" />
+        <AssociationConnector Association="CollegeModel.StudentID" />
         <AssociationConnector Association="CollegeModel.FK_Instructor" />
         <AssociationConnector Association="CollegeModel.FK_Major" />
       </Diagram>

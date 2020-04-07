@@ -20,11 +20,11 @@ public partial class Enrollment
 
     public int Id { get; set; }
 
-    public int StudentID { get; set; }
-
     public int InstructorID { get; set; }
 
     public int SectionID { get; set; }
+
+    public int StudentID { get; set; }
 
     public double Grade { get; set; }
 
