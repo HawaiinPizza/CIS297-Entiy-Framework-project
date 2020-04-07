@@ -228,5 +228,17 @@ namespace February27th_EntityFramework
 
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            var searchString = filterTextBox.Text;
+            var sections = from s in collegeEntities.Sections
+                           select s;
+            sections = sections.Where(s => s.Semester.Contains(searchString));
+            dataGridView1.DataSource = sections.ToList();
+        }
     }
 }

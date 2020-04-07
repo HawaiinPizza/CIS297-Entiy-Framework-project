@@ -74,6 +74,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.InstructorLabel = new System.Windows.Forms.TextBox();
             this.CourseLabel = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.filterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
@@ -430,11 +433,41 @@
             this.CourseLabel.Size = new System.Drawing.Size(100, 20);
             this.CourseLabel.TabIndex = 34;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(723, 434);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Semester";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // filterTextBox
+            // 
+            this.filterTextBox.Location = new System.Drawing.Point(799, 434);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(100, 20);
+            this.filterTextBox.TabIndex = 36;
+            // 
+            // filterButton
+            // 
+            this.filterButton.Location = new System.Drawing.Point(729, 479);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(182, 23);
+            this.filterButton.TabIndex = 37;
+            this.filterButton.Text = "Filter by Semester";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.filterTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.CourseLabel);
             this.Controls.Add(this.InstructorLabel);
             this.Controls.Add(this.label7);
@@ -522,6 +555,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox InstructorLabel;
         private System.Windows.Forms.TextBox CourseLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.Button filterButton;
     }
 }
 

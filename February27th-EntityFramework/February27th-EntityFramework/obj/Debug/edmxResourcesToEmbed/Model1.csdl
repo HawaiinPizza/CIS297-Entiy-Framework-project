@@ -27,6 +27,10 @@
       <End Role="Major" EntitySet="Majors" />
       <End Role="Student" EntitySet="Students" />
     </AssociationSet>
+    <AssociationSet Name="SectionID" Association="CollegeModel.SectionID">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Course">
     <Key>
@@ -49,6 +53,8 @@
     <Property Name="Grade" Type="Double" Nullable="false" />
     <NavigationProperty Name="Instructor" Relationship="CollegeModel.InstructorID" FromRole="Enrollment" ToRole="Instructor" />
     <NavigationProperty Name="Student" Relationship="CollegeModel.UniqueID" FromRole="Enrollment" ToRole="Student" />
+    <Property Name="SectionID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Section" Relationship="CollegeModel.SectionID" FromRole="Enrollment" ToRole="Section" />
   </EntityType>
   <EntityType Name="Instructor">
     <Key>
@@ -81,6 +87,8 @@
     <Property Name="Instructor_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Course" Relationship="CollegeModel.FK_Section_ToTable" FromRole="Section" ToRole="Course" />
     <NavigationProperty Name="Instructor" Relationship="CollegeModel.FK_Instructor" FromRole="Section" ToRole="Instructor" />
+    <Property Name="Semester" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Enrollments" Relationship="CollegeModel.SectionID" FromRole="Section" ToRole="Enrollment" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -149,6 +157,18 @@
       </Principal>
       <Dependent Role="Student">
         <PropertyRef Name="Major" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SectionID">
+    <End Type="CollegeModel.Section" Role="Section" Multiplicity="1" />
+    <End Type="CollegeModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="SectionID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

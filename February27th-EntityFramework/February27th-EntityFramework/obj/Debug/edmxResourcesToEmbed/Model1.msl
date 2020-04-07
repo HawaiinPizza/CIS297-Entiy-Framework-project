@@ -15,6 +15,7 @@
     <EntitySetMapping Name="Enrollments">
       <EntityTypeMapping TypeName="CollegeModel.Enrollment">
         <MappingFragment StoreEntitySet="Enrollment">
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
           <ScalarProperty Name="Grade" ColumnName="Grade" />
           <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
@@ -44,6 +45,7 @@
     <EntitySetMapping Name="Sections">
       <EntityTypeMapping TypeName="CollegeModel.Section">
         <MappingFragment StoreEntitySet="Section">
+          <ScalarProperty Name="Semester" ColumnName="Semester" />
           <ScalarProperty Name="Instructor_ID" ColumnName="Instructor_ID" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Days" ColumnName="Days" />

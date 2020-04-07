@@ -56,6 +56,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.majorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseTableAdapter = new February27th_EntityFramework.CollegeSetTableAdapters.CourseTableAdapter();
@@ -64,8 +65,10 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.majorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.majorTableAdapter = new February27th_EntityFramework.CollegeSetTableAdapters.MajorTableAdapter();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.filterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
@@ -78,9 +81,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // selectedFacultyLabel
@@ -113,6 +116,7 @@
             this.MajorLabel.Name = "MajorLabel";
             this.MajorLabel.Size = new System.Drawing.Size(100, 20);
             this.MajorLabel.TabIndex = 18;
+            this.MajorLabel.TextChanged += new System.EventHandler(this.MajorLabel_TextChanged);
             // 
             // NameLabel
             // 
@@ -266,6 +270,11 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // majorBindingSource
+            // 
+            this.majorBindingSource.DataMember = "Major";
+            this.majorBindingSource.DataSource = this.collegeSet;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -327,20 +336,48 @@
             this.NameA.HeaderText = "Name";
             this.NameA.Name = "NameA";
             // 
-            // majorBindingSource
-            // 
-            this.majorBindingSource.DataMember = "Major";
-            this.majorBindingSource.DataSource = this.collegeSet;
-            // 
             // majorTableAdapter
             // 
             this.majorTableAdapter.ClearBeforeFill = true;
+            // 
+            // filterTextBox
+            // 
+            this.filterTextBox.AccessibleName = "";
+            this.filterTextBox.Location = new System.Drawing.Point(799, 388);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(100, 20);
+            this.filterTextBox.TabIndex = 36;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(726, 391);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Major";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // filterButton
+            // 
+            this.filterButton.AccessibleName = "filterButton";
+            this.filterButton.Location = new System.Drawing.Point(729, 438);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(182, 23);
+            this.filterButton.TabIndex = 38;
+            this.filterButton.Text = "Filter by Major";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView2);
@@ -369,9 +406,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,6 +452,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameA;
         private System.Windows.Forms.BindingSource majorBindingSource;
         private CollegeSetTableAdapters.MajorTableAdapter majorTableAdapter;
+        private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button filterButton;
     }
 }
 

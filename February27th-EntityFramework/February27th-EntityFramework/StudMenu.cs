@@ -220,5 +220,29 @@ namespace February27th_EntityFramework
             collegeEntities.SaveChanges();
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MajorLabel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var searchInt = Int32.Parse(filterTextBox.Text);
+            var students = from s in collegeEntities.Students
+                           select s;
+            students = students.Where(s => s.Major == searchInt);
+            dataGridView1.DataSource = students.ToList();
+        }
     }
 }
