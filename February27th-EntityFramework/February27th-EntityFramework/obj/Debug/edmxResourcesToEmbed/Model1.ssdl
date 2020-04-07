@@ -15,8 +15,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UniqueID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
     <Property Name="InstructorID" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Instructor">
     <Key>
@@ -49,7 +50,7 @@
     <Key>
       <PropertyRef Name="UniqueID" />
     </Key>
-    <Property Name="UniqueID" Type="int" Nullable="false" />
+    <Property Name="UniqueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Major" Type="int" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -109,7 +110,7 @@
         <PropertyRef Name="UniqueID" />
       </Principal>
       <Dependent Role="Enrollment">
-        <PropertyRef Name="UniqueID" />
+        <PropertyRef Name="StudentID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
