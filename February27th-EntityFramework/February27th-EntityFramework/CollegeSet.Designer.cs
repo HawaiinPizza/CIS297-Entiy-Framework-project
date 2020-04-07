@@ -42,8 +42,6 @@ namespace February27th_EntityFramework {
         
         private global::System.Data.DataRelation relationFK_Major;
         
-        private global::System.Data.DataRelation relationInstructorID;
-        
         private global::System.Data.DataRelation relationSectionID;
         
         private global::System.Data.DataRelation relationStudentID;
@@ -329,7 +327,6 @@ namespace February27th_EntityFramework {
             this.relationFK_Instructor = this.Relations["FK_Instructor"];
             this.relationFK_Section_ToTable = this.Relations["FK_Section_ToTable"];
             this.relationFK_Major = this.Relations["FK_Major"];
-            this.relationInstructorID = this.Relations["InstructorID"];
             this.relationSectionID = this.Relations["SectionID"];
             this.relationStudentID = this.Relations["StudentID"];
         }
@@ -366,10 +363,6 @@ namespace February27th_EntityFramework {
                         this.tableMajor.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableStudent.MajorColumn}, false);
             this.Relations.Add(this.relationFK_Major);
-            this.relationInstructorID = new global::System.Data.DataRelation("InstructorID", new global::System.Data.DataColumn[] {
-                        this.tableInstructor.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEnrollment.InstructorIDColumn}, false);
-            this.Relations.Add(this.relationInstructorID);
             this.relationSectionID = new global::System.Data.DataRelation("SectionID", new global::System.Data.DataColumn[] {
                         this.tableSection.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableEnrollment.SectionIDColumn}, false);
@@ -2049,8 +2042,6 @@ namespace February27th_EntityFramework {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnInstructorID;
-            
             private global::System.Data.DataColumn columnSectionID;
             
             private global::System.Data.DataColumn columnStudentID;
@@ -2095,14 +2086,6 @@ namespace February27th_EntityFramework {
             public global::System.Data.DataColumn IdColumn {
                 get {
                     return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InstructorIDColumn {
-                get {
-                    return this.columnInstructorID;
                 }
             }
             
@@ -2167,22 +2150,18 @@ namespace February27th_EntityFramework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EnrollmentRow AddEnrollmentRow(InstructorRow parentInstructorRowByInstructorID, SectionRow parentSectionRowBySectionID, StudentRow parentStudentRowByStudentID, double Grade) {
+            public EnrollmentRow AddEnrollmentRow(SectionRow parentSectionRowBySectionID, StudentRow parentStudentRowByStudentID, double Grade) {
                 EnrollmentRow rowEnrollmentRow = ((EnrollmentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
-                        null,
                         Grade};
-                if ((parentInstructorRowByInstructorID != null)) {
-                    columnValuesArray[1] = parentInstructorRowByInstructorID[0];
-                }
                 if ((parentSectionRowBySectionID != null)) {
-                    columnValuesArray[2] = parentSectionRowBySectionID[0];
+                    columnValuesArray[1] = parentSectionRowBySectionID[0];
                 }
                 if ((parentStudentRowByStudentID != null)) {
-                    columnValuesArray[3] = parentStudentRowByStudentID[0];
+                    columnValuesArray[2] = parentStudentRowByStudentID[0];
                 }
                 rowEnrollmentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEnrollmentRow);
@@ -2214,7 +2193,6 @@ namespace February27th_EntityFramework {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnInstructorID = base.Columns["InstructorID"];
                 this.columnSectionID = base.Columns["SectionID"];
                 this.columnStudentID = base.Columns["StudentID"];
                 this.columnGrade = base.Columns["Grade"];
@@ -2225,8 +2203,6 @@ namespace February27th_EntityFramework {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnInstructorID = new global::System.Data.DataColumn("InstructorID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInstructorID);
                 this.columnSectionID = new global::System.Data.DataColumn("SectionID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSectionID);
                 this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2241,7 +2217,6 @@ namespace February27th_EntityFramework {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnInstructorID.AllowDBNull = false;
                 this.columnSectionID.AllowDBNull = false;
                 this.columnStudentID.AllowDBNull = false;
                 this.columnGrade.AllowDBNull = false;
@@ -2520,17 +2495,6 @@ namespace February27th_EntityFramework {
                     return ((SectionRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Instructor"])));
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EnrollmentRow[] GetEnrollmentRows() {
-                if ((this.Table.ChildRelations["InstructorID"] == null)) {
-                    return new EnrollmentRow[0];
-                }
-                else {
-                    return ((EnrollmentRow[])(base.GetChildRows(this.Table.ChildRelations["InstructorID"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2792,17 +2756,6 @@ namespace February27th_EntityFramework {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int InstructorID {
-                get {
-                    return ((int)(this[this.tableEnrollment.InstructorIDColumn]));
-                }
-                set {
-                    this[this.tableEnrollment.InstructorIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int SectionID {
                 get {
                     return ((int)(this[this.tableEnrollment.SectionIDColumn]));
@@ -2831,17 +2784,6 @@ namespace February27th_EntityFramework {
                 }
                 set {
                     this[this.tableEnrollment.GradeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InstructorRow InstructorRow {
-                get {
-                    return ((InstructorRow)(this.GetParentRow(this.Table.ParentRelations["InstructorID"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["InstructorID"]);
                 }
             }
             
@@ -5002,43 +4944,38 @@ SELECT UniqueID, Major, Name FROM Student WHERE (UniqueID = @UniqueID)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Enrollment";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("InstructorID", "InstructorID");
             tableMapping.ColumnMappings.Add("SectionID", "SectionID");
             tableMapping.ColumnMappings.Add("StudentID", "StudentID");
             tableMapping.ColumnMappings.Add("Grade", "Grade");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Enrollment] WHERE (([Id] = @Original_Id) AND ([InstructorID] = @Orig" +
-                "inal_InstructorID) AND ([SectionID] = @Original_SectionID) AND ([StudentID] = @O" +
-                "riginal_StudentID) AND ([Grade] = @Original_Grade))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Enrollment] WHERE (([Id] = @Original_Id) AND ([SectionID] = @Origina" +
+                "l_SectionID) AND ([StudentID] = @Original_StudentID) AND ([Grade] = @Original_Gr" +
+                "ade))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InstructorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstructorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SectionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Grade", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grade", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Enrollment] ([InstructorID], [SectionID], [StudentID], [Grade]) VALU" +
-                "ES (@InstructorID, @SectionID, @StudentID, @Grade);\r\nSELECT Id, InstructorID, Se" +
-                "ctionID, StudentID, Grade FROM Enrollment WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Enrollment] ([SectionID], [StudentID], [Grade]) VALUES (@SectionID, " +
+                "@StudentID, @Grade);\r\nSELECT Id, SectionID, StudentID, Grade FROM Enrollment WHE" +
+                "RE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstructorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstructorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SectionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grade", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Enrollment] SET [InstructorID] = @InstructorID, [SectionID] = @SectionID, [StudentID] = @StudentID, [Grade] = @Grade WHERE (([Id] = @Original_Id) AND ([InstructorID] = @Original_InstructorID) AND ([SectionID] = @Original_SectionID) AND ([StudentID] = @Original_StudentID) AND ([Grade] = @Original_Grade));
-SELECT Id, InstructorID, SectionID, StudentID, Grade FROM Enrollment WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Enrollment] SET [SectionID] = @SectionID, [StudentID] = @StudentID, [Grade] = @Grade WHERE (([Id] = @Original_Id) AND ([SectionID] = @Original_SectionID) AND ([StudentID] = @Original_StudentID) AND ([Grade] = @Original_Grade));
+SELECT Id, SectionID, StudentID, Grade FROM Enrollment WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstructorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstructorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SectionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grade", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InstructorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstructorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SectionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Grade", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grade", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5119,12 +5056,11 @@ SELECT Id, InstructorID, SectionID, StudentID, Grade FROM Enrollment WHERE (Id =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, int Original_InstructorID, int Original_SectionID, int Original_StudentID, double Original_Grade) {
+        public virtual int Delete(int Original_Id, int Original_SectionID, int Original_StudentID, double Original_Grade) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_InstructorID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_SectionID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_StudentID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_Grade));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_SectionID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_StudentID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((double)(Original_Grade));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5145,11 +5081,10 @@ SELECT Id, InstructorID, SectionID, StudentID, Grade FROM Enrollment WHERE (Id =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int InstructorID, int SectionID, int StudentID, double Grade) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(InstructorID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(SectionID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(StudentID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((double)(Grade));
+        public virtual int Insert(int SectionID, int StudentID, double Grade) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SectionID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(StudentID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((double)(Grade));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5170,17 +5105,15 @@ SELECT Id, InstructorID, SectionID, StudentID, Grade FROM Enrollment WHERE (Id =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int InstructorID, int SectionID, int StudentID, double Grade, int Original_Id, int Original_InstructorID, int Original_SectionID, int Original_StudentID, double Original_Grade, int Id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(InstructorID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(SectionID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(StudentID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(Grade));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_InstructorID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_SectionID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_StudentID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(Original_Grade));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Id));
+        public virtual int Update(int SectionID, int StudentID, double Grade, int Original_Id, int Original_SectionID, int Original_StudentID, double Original_Grade, int Id) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SectionID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(StudentID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(Grade));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_SectionID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_StudentID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_Grade));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5201,8 +5134,8 @@ SELECT Id, InstructorID, SectionID, StudentID, Grade FROM Enrollment WHERE (Id =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int InstructorID, int SectionID, int StudentID, double Grade, int Original_Id, int Original_InstructorID, int Original_SectionID, int Original_StudentID, double Original_Grade) {
-            return this.Update(InstructorID, SectionID, StudentID, Grade, Original_Id, Original_InstructorID, Original_SectionID, Original_StudentID, Original_Grade, Original_Id);
+        public virtual int Update(int SectionID, int StudentID, double Grade, int Original_Id, int Original_SectionID, int Original_StudentID, double Original_Grade) {
+            return this.Update(SectionID, StudentID, Grade, Original_Id, Original_SectionID, Original_StudentID, Original_Grade, Original_Id);
         }
     }
     

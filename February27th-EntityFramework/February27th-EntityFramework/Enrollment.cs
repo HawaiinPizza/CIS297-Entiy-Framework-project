@@ -20,8 +20,6 @@ public partial class Enrollment
 
     public int Id { get; set; }
 
-    public int InstructorID { get; set; }
-
     public int SectionID { get; set; }
 
     public int StudentID { get; set; }
@@ -29,8 +27,6 @@ public partial class Enrollment
     public double Grade { get; set; }
 
 
-
-    public virtual Instructor Instructor { get; set; }
 
     public virtual Section Section { get; set; }
 

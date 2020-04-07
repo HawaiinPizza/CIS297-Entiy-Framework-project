@@ -77,6 +77,12 @@
     <Compile Include="Course.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EMenu - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMenu - Copy.Designer.cs">
+      <DependentUpon>EMenu - Copy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -91,12 +97,6 @@
     </Compile>
     <Compile Include="CourseMenu.Designer.cs">
       <DependentUpon>CourseMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EMenu.Designer.cs">
-      <DependentUpon>EMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Model1.Views.cs" />
     <Compile Include="StudMenu.cs">
@@ -146,14 +146,14 @@
     <Compile Include="Student.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EMenu - Copy.resx">
+      <DependentUpon>EMenu - Copy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacultyForm.resx">
       <DependentUpon>FacultyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseMenu.resx">
       <DependentUpon>CourseMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EMenu.resx">
-      <DependentUpon>EMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudMenu.resx">
       <DependentUpon>StudMenu.cs</DependentUpon>

@@ -22,8 +22,6 @@ public partial class Instructor
     public Instructor()
     {
 
-        this.Enrollments = new HashSet<Enrollment>();
-
         this.Sections = new HashSet<Section>();
 
     }
@@ -38,10 +36,6 @@ public partial class Instructor
     public string Office { get; set; }
 
 
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Enrollment> Enrollments { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 

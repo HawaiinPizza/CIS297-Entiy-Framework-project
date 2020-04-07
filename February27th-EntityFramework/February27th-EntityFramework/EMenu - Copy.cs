@@ -49,6 +49,14 @@ namespace February27th_EntityFramework
         private void Form6_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'collegeSet.Enrollment' table. You can move, or remove it, as needed.
+            this.enrollmentTableAdapter.Fill(this.collegeSet.Enrollment);
+            // TODO: This line of code loads data into the 'collegeSet.Section' table. You can move, or remove it, as needed.
+            this.sectionTableAdapter.Fill(this.collegeSet.Section);
+            // TODO: This line of code loads data into the 'collegeSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.collegeSet.Student);
+            // TODO: This line of code loads data into the 'collegeSet.Instructor' table. You can move, or remove it, as needed.
+            this.instructorTableAdapter.Fill(this.collegeSet.Instructor);
+            // TODO: This line of code loads data into the 'collegeSet.Enrollment' table. You can move, or remove it, as needed.
 
         }
 
@@ -65,11 +73,6 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-            var query=collegeEntities.Instructors.Where(s => s.Id == DeleteID);
-            collegeEntities.Instructors.Remove(query.FirstOrDefault());
-            collegeEntities.SaveChanges();
-            //MessageBox.Show(query.FirstOrDefault().Id.ToString());
 
         }
 
@@ -123,38 +126,14 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("Incredible point");
-            string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            int ID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            var query = collegeEntities.Sections.Where(s => s.Id == ID);
-
-
-            switch (e.ColumnIndex)
-            {
-                case 1:
-                    query.FirstOrDefault().Course_Id = Int32.Parse(Change);
-                    break;
-                case 4:
-                    query.FirstOrDefault().Instructor_ID = Int32.Parse(Change);
-                                            break;
-                case 3:
-                    query.FirstOrDefault().Days = Change;
-                    break;
-                case 2:
-                    query.FirstOrDefault().Time = Change;
-                    break;
-            }
-            collegeEntities.SaveChanges();
-
         }
 
         private void addInstructorButton_Click(object sender, EventArgs e)
         {
             if (
-                DaysLabel.Text.Length == 0 ||
-                TimeLabel.Text.Length == 0 ||
-                InstructorLabel.Text.Length == 0 ||
-                CourseLabel.Text.Length == 0
+                SectionLabel.Text.Length == 0 ||
+                StudentLabel.Text.Length == 0 ||
+                GradeLabel.Text.Length == 0
                 )
             {
                 MessageBox.Show("One of the data fields is eMPTY");
@@ -165,24 +144,73 @@ namespace February27th_EntityFramework
 
                 //This is a try and catch block, in case a user puts in incorrect Course and Section ID
                 try {
-                    Section temp = new Section()
+                    MessageBox.Show(SectionLabel.Text + '\t' + StudentLabel.Text);
+                    Enrollment temp = new Enrollment()
                     {
-                        Course_Id=Int32.Parse(CourseLabel.Text),
-                        Instructor_ID=Int32.Parse(InstructorLabel.Text),
-                        Days=DaysLabel.Text,
-                        Time=TimeLabel.Text
+                        SectionID = Int32.Parse(SectionLabel.Text),
+                        StudentID = Int32.Parse(StudentLabel.Text),
+                        Grade = float.Parse(GradeLabel.Text),
+
                     };
-                    collegeEntities.Sections.Add(temp);
+
+                    collegeEntities.Enrollments.Add(temp);
                     collegeEntities.SaveChanges();
-                    dataGridView1.DataSource = collegeEntities.Sections.ToList();
-                    dataGridView1.Refresh();
+                    dataGridView4.DataSource = collegeEntities.Enrollments.ToList();
+                    dataGridView4.Refresh();
                     }
                 catch (Exception j)
                 {
-                    MessageBox.Show("For Course or Insturcotr ID, they are incorrect values bro");
+                    MessageBox.Show("Either section/student id is not valid, or grade is not a number" );
                 }
             }
         }
 
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView4_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("Incredible point");
+            string Change=dataGridView4.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            int ID = Int32.Parse(dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString());
+            var query = collegeEntities.Enrollments.Where(s => s.Id == ID);
+
+
+            try
+            {
+                MessageBox.Show(e.ColumnIndex.ToString());
+                switch (e.ColumnIndex)
+                {
+                    case 1:
+                        query.FirstOrDefault().SectionID = Int32.Parse(Change);
+                        break;
+                    case 2:
+                        query.FirstOrDefault().StudentID = Int32.Parse(Change);
+                        break;
+                    case 3:
+                        query.FirstOrDefault().Grade = float.Parse(Change);
+                        break;
+                }
+            }
+            catch(Exception j)
+            {
+                MessageBox.Show("You enter invalid id, or not a number for grade");
+            }
+            collegeEntities.SaveChanges();
+
+
+        }
+
+        private void dataGridView4_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
+            var query=collegeEntities.Enrollments.Where(s => s.Id == DeleteID);
+            collegeEntities.Enrollments.Remove(query.FirstOrDefault());
+            collegeEntities.SaveChanges();
+            //MessageBox.Show(query.FirstOrDefault().Id.ToString());
+
+        }
     }
 }

@@ -18,7 +18,6 @@
           <ScalarProperty Name="Grade" ColumnName="Grade" />
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="SectionID" ColumnName="SectionID" />
-          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

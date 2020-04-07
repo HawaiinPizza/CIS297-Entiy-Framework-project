@@ -15,7 +15,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="InstructorID" Type="int" Nullable="false" />
     <Property Name="SectionID" Type="int" Nullable="false" />
     <Property Name="StudentID" Type="int" Nullable="false" />
     <Property Name="Grade" Type="float" Nullable="false" />
@@ -91,18 +90,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="InstructorID">
-    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
-    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Instructor">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Enrollment">
-        <PropertyRef Name="InstructorID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="SectionID">
     <End Role="Section" Type="Self.Section" Multiplicity="1" />
     <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
@@ -145,10 +132,6 @@
     <AssociationSet Name="FK_Section_ToTable" Association="Self.FK_Section_ToTable">
       <End Role="Course" EntitySet="Course" />
       <End Role="Section" EntitySet="Section" />
-    </AssociationSet>
-    <AssociationSet Name="InstructorID" Association="Self.InstructorID">
-      <End Role="Instructor" EntitySet="Instructor" />
-      <End Role="Enrollment" EntitySet="Enrollment" />
     </AssociationSet>
     <AssociationSet Name="SectionID" Association="Self.SectionID">
       <End Role="Section" EntitySet="Section" />

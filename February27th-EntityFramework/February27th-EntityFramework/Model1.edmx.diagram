@@ -5,14 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e764f9c1012a418aabd30e3fa569ac84" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="CollegeModel.Course" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CollegeModel.Enrollment" Width="1.5" PointX="3" PointY="4.5" />
-        <EntityTypeShape EntityType="CollegeModel.Instructor" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="CollegeModel.Major" Width="1.5" PointX="1.5" PointY="7.875" />
-        <EntityTypeShape EntityType="CollegeModel.Section" Width="1.5" PointX="6" PointY="4.5" />
-        <EntityTypeShape EntityType="CollegeModel.Student" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="CollegeModel.Course" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="CollegeModel.Enrollment" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CollegeModel.Instructor" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="CollegeModel.Major" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="CollegeModel.Section" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CollegeModel.Student" Width="1.5" PointX="3" PointY="8.25" />
         <AssociationConnector Association="CollegeModel.FK_Section_ToTable" />
-        <AssociationConnector Association="CollegeModel.InstructorID" />
         <AssociationConnector Association="CollegeModel.SectionID" />
         <AssociationConnector Association="CollegeModel.StudentID" />
         <AssociationConnector Association="CollegeModel.FK_Instructor" />

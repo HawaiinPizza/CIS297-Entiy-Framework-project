@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(February27th_EntityFramework.CollegeEntities),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetse5f3806c69b94abe6e34e6e899317c4f724330e778f748a30e9311b0db576df7))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets8b3e827bfba165057d6b7b87878bcd3ab2657f94adb2a90da1dc211e8d36fb20))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework 6 Power Tools", "0.9.2.0")]
-    internal sealed class ViewsForBaseEntitySetse5f3806c69b94abe6e34e6e899317c4f724330e778f748a30e9311b0db576df7 : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySets8b3e827bfba165057d6b7b87878bcd3ab2657f94adb2a90da1dc211e8d36fb20 : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "e5f3806c69b94abe6e34e6e899317c4f724330e778f748a30e9311b0db576df7"; }
+            get { return "8b3e827bfba165057d6b7b87878bcd3ab2657f94adb2a90da1dc211e8d36fb20"; }
         }
 
         /// <summary>
@@ -62,42 +62,42 @@ namespace Edm_EntityMappingGeneratedViews
                 return GetView2();
             }
 
-            if (extentName == "CollegeModelStoreContainer.Section")
+            if (extentName == "CollegeModelStoreContainer.Major")
             {
                 return GetView3();
             }
 
-            if (extentName == "CollegeEntities.Courses")
+            if (extentName == "CollegeModelStoreContainer.Section")
             {
                 return GetView4();
             }
 
-            if (extentName == "CollegeEntities.Enrollments")
+            if (extentName == "CollegeModelStoreContainer.Student")
             {
                 return GetView5();
             }
 
-            if (extentName == "CollegeEntities.Instructors")
+            if (extentName == "CollegeEntities.Courses")
             {
                 return GetView6();
             }
 
-            if (extentName == "CollegeEntities.Sections")
+            if (extentName == "CollegeEntities.Enrollments")
             {
                 return GetView7();
             }
 
-            if (extentName == "CollegeModelStoreContainer.Major")
+            if (extentName == "CollegeEntities.Instructors")
             {
                 return GetView8();
             }
 
-            if (extentName == "CollegeModelStoreContainer.Student")
+            if (extentName == "CollegeEntities.Majors")
             {
                 return GetView9();
             }
 
-            if (extentName == "CollegeEntities.Majors")
+            if (extentName == "CollegeEntities.Sections")
             {
                 return GetView10();
             }
@@ -139,12 +139,12 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Enrollment
-        [CollegeModel.Store.Enrollment](T1.Enrollment_Id, T1.Enrollment_InstructorID, T1.Enrollment_SectionID, T1.Enrollment_Grade)
+        [CollegeModel.Store.Enrollment](T1.Enrollment_Id, T1.Enrollment_SectionID, T1.Enrollment_StudentID, T1.Enrollment_Grade)
     FROM (
         SELECT 
             T.Id AS Enrollment_Id, 
-            T.InstructorID AS Enrollment_InstructorID, 
             T.SectionID AS Enrollment_SectionID, 
+            T.StudentID AS Enrollment_StudentID, 
             T.Grade AS Enrollment_Grade, 
             True AS _from0
         FROM CollegeEntities.Enrollments AS T
@@ -172,10 +172,29 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
-        /// Gets the view for CollegeModelStoreContainer.Section.
+        /// Gets the view for CollegeModelStoreContainer.Major.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView3()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Major
+        [CollegeModel.Store.Major](T1.Major_Id, T1.Major_Name, T1.Major_Type)
+    FROM (
+        SELECT 
+            T.Id AS Major_Id, 
+            T.Name AS Major_Name, 
+            T.Type AS Major_Type, 
+            True AS _from0
+        FROM CollegeEntities.Majors AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CollegeModelStoreContainer.Section.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView4()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Section
@@ -193,10 +212,29 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
+        /// Gets the view for CollegeModelStoreContainer.Student.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView5()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Student
+        [CollegeModel.Store.Student](T1.Student_UniqueID, T1.Student_Major, T1.Student_Name)
+    FROM (
+        SELECT 
+            T.UniqueID AS Student_UniqueID, 
+            T.Major AS Student_Major, 
+            T.Name AS Student_Name, 
+            True AS _from0
+        FROM CollegeEntities.Students AS T
+    ) AS T1");
+        }
+
+        /// <summary>
         /// Gets the view for CollegeEntities.Courses.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView4()
+        private static DbMappingView GetView6()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Courses
@@ -217,16 +255,16 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CollegeEntities.Enrollments.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView5()
+        private static DbMappingView GetView7()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Enrollments
-        [CollegeModel.Enrollment](T1.Enrollment_Id, T1.Enrollment_InstructorID, T1.Enrollment_SectionID, T1.Enrollment_Grade)
+        [CollegeModel.Enrollment](T1.Enrollment_Id, T1.Enrollment_SectionID, T1.Enrollment_StudentID, T1.Enrollment_Grade)
     FROM (
         SELECT 
             T.Id AS Enrollment_Id, 
-            T.InstructorID AS Enrollment_InstructorID, 
             T.SectionID AS Enrollment_SectionID, 
+            T.StudentID AS Enrollment_StudentID, 
             T.Grade AS Enrollment_Grade, 
             True AS _from0
         FROM CollegeModelStoreContainer.Enrollment AS T
@@ -237,7 +275,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CollegeEntities.Instructors.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView6()
+        private static DbMappingView GetView8()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Instructors
@@ -254,10 +292,29 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
+        /// Gets the view for CollegeEntities.Majors.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView9()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Majors
+        [CollegeModel.Major](T1.Major_Id, T1.Major_Name, T1.Major_Type)
+    FROM (
+        SELECT 
+            T.Id AS Major_Id, 
+            T.Name AS Major_Name, 
+            T.Type AS Major_Type, 
+            True AS _from0
+        FROM CollegeModelStoreContainer.Major AS T
+    ) AS T1");
+        }
+
+        /// <summary>
         /// Gets the view for CollegeEntities.Sections.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView7()
+        private static DbMappingView GetView10()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Sections
@@ -271,63 +328,6 @@ namespace Edm_EntityMappingGeneratedViews
             T.Instructor_ID AS [Section.Instructor_ID], 
             True AS _from0
         FROM CollegeModelStoreContainer.Section AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for CollegeModelStoreContainer.Major.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView8()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Major
-        [CollegeModel.Store.Major](T1.Major_Id, T1.Major_Name, T1.Major_Type)
-    FROM (
-        SELECT 
-            T.Id AS Major_Id, 
-            T.Name AS Major_Name, 
-            T.Type AS Major_Type, 
-            True AS _from0
-        FROM CollegeEntities.Majors AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for CollegeModelStoreContainer.Student.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView9()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Student
-        [CollegeModel.Store.Student](T1.Student_UniqueID, T1.Student_Major, T1.Student_Name)
-    FROM (
-        SELECT 
-            T.UniqueID AS Student_UniqueID, 
-            T.Major AS Student_Major, 
-            T.Name AS Student_Name, 
-            True AS _from0
-        FROM CollegeEntities.Students AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for CollegeEntities.Majors.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView10()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Majors
-        [CollegeModel.Major](T1.Major_Id, T1.Major_Name, T1.Major_Type)
-    FROM (
-        SELECT 
-            T.Id AS Major_Id, 
-            T.Name AS Major_Name, 
-            T.Type AS Major_Type, 
-            True AS _from0
-        FROM CollegeModelStoreContainer.Major AS T
     ) AS T1");
         }
 
