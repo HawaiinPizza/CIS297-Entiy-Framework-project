@@ -186,5 +186,13 @@ namespace February27th_EntityFramework
             temp.Show();
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form6 temp = new Form6();
+            temp.Show();
+
+        }
     }
 }

@@ -92,6 +92,12 @@
     <Compile Include="CourseMenu.Designer.cs">
       <DependentUpon>CourseMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnrolMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnrolMenu.Designer.cs">
+      <DependentUpon>EnrolMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseMenu.resx">
       <DependentUpon>CourseMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnrolMenu.resx">
+      <DependentUpon>EnrolMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudMenu.resx">
       <DependentUpon>StudMenu.cs</DependentUpon>

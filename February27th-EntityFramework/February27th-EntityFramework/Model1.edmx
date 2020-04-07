@@ -22,6 +22,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
           <Property Name="InstructorID" Type="int" Nullable="false" />
+          <Property Name="SectionID" Type="int" Nullable="false" />
           <Property Name="Grade" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Instructor">
@@ -107,6 +108,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="SectionID">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="UniqueID">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
@@ -142,6 +155,10 @@
             <End Role="Instructor" EntitySet="Instructor" />
             <End Role="Enrollment" EntitySet="Enrollment" />
           </AssociationSet>
+          <AssociationSet Name="SectionID" Association="Self.SectionID">
+            <End Role="Section" EntitySet="Section" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
           <AssociationSet Name="UniqueID" Association="Self.UniqueID">
             <End Role="Student" EntitySet="Student" />
             <End Role="Enrollment" EntitySet="Enrollment" />
@@ -164,6 +181,10 @@
           </AssociationSet>
           <AssociationSet Name="InstructorID" Association="CollegeModel.InstructorID">
             <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="SectionID" Association="CollegeModel.SectionID">
+            <End Role="Section" EntitySet="Sections" />
             <End Role="Enrollment" EntitySet="Enrollments" />
           </AssociationSet>
           <AssociationSet Name="UniqueID" Association="CollegeModel.UniqueID">
@@ -197,8 +218,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="InstructorID" Type="Int32" Nullable="false" />
+          <Property Name="SectionID" Type="Int32" Nullable="false" />
           <Property Name="Grade" Type="Double" Nullable="false" />
           <NavigationProperty Name="Instructor" Relationship="CollegeModel.InstructorID" FromRole="Enrollment" ToRole="Instructor" />
+          <NavigationProperty Name="Section" Relationship="CollegeModel.SectionID" FromRole="Enrollment" ToRole="Section" />
           <NavigationProperty Name="Student" Relationship="CollegeModel.UniqueID" FromRole="Enrollment" ToRole="Student" />
         </EntityType>
         <EntityType Name="Instructor">
@@ -231,6 +254,7 @@
           <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Instructor_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Course" Relationship="CollegeModel.FK_Section_ToTable" FromRole="Section" ToRole="Course" />
+          <NavigationProperty Name="Enrollments" Relationship="CollegeModel.SectionID" FromRole="Section" ToRole="Enrollment" />
           <NavigationProperty Name="Instructor" Relationship="CollegeModel.FK_Instructor" FromRole="Section" ToRole="Instructor" />
         </EntityType>
         <EntityType Name="Student">
@@ -264,6 +288,18 @@
             </Principal>
             <Dependent Role="Enrollment">
               <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SectionID">
+          <End Type="CollegeModel.Section" Role="Section" Multiplicity="1" />
+          <End Type="CollegeModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="SectionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -324,6 +360,7 @@
             <EntityTypeMapping TypeName="CollegeModel.Enrollment">
               <MappingFragment StoreEntitySet="Enrollment">
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
                 <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

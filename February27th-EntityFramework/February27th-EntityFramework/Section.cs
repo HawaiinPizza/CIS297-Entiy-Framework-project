@@ -18,6 +18,15 @@ using System;
 public partial class Section
 {
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Section()
+    {
+
+        this.Enrollments = new HashSet<Enrollment>();
+
+    }
+
+
     public int Id { get; set; }
 
     public int Course_Id { get; set; }
@@ -31,6 +40,10 @@ public partial class Section
 
 
     public virtual Course Course { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Enrollment> Enrollments { get; set; }
 
     public virtual Instructor Instructor { get; set; }
 

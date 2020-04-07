@@ -24,11 +24,15 @@ public partial class Enrollment
 
     public int InstructorID { get; set; }
 
+    public int SectionID { get; set; }
+
     public double Grade { get; set; }
 
 
 
     public virtual Instructor Instructor { get; set; }
+
+    public virtual Section Section { get; set; }
 
     public virtual Student Student { get; set; }
 
