@@ -35,3 +35,5 @@ C:\Users\chadh\Git\CIS297-Entiy-Framework-project\February27th-EntityFramework\F
 C:\Users\chadh\Git\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.csproj.CopyComplete
 C:\Users\chadh\Git\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.exe
 C:\Users\chadh\Git\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th-EntityFramework.pdb
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.Form6.resources
+C:\Users\fru\source\repos\HawaiinPizza\muaz\waht\zak\CIS297-Entiy-Framework-project\February27th-EntityFramework\February27th-EntityFramework\obj\Debug\February27th_EntityFramework.Form10.resources
