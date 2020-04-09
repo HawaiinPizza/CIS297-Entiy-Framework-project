@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="PongExample.TitlePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PongExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="248,245,0,0" Text="Totally Awesome Pong Game!" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="76" Width="1026"/>
+        <Button Content="Play Game!" Margin="357,611,0,0" VerticalAlignment="Top" Height="87" Width="288" FontSize="40" Click="Button_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="501,437,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
+
+    </Grid>
+</Page>
