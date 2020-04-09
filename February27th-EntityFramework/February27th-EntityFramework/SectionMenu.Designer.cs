@@ -218,6 +218,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(581, 150);
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit_1);
+            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow_1);
             // 
             // idDataGridViewTextBoxColumn
             // 

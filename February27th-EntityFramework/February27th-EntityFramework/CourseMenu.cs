@@ -137,10 +137,17 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-            var query=collegeEntities.Courses.Where(s => s.Id == DeleteID);
-            collegeEntities.Courses.Remove(query.FirstOrDefault());
-            collegeEntities.SaveChanges();
+            try
+            {
+                int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
+                var query = collegeEntities.Courses.Where(s => s.Id == DeleteID);
+                collegeEntities.Courses.Remove(query.FirstOrDefault());
+                collegeEntities.SaveChanges();
+            }
+            catch (Exception j)
+            {
+                MessageBox.Show("Course is dependant on a enrollment");
+            }
             //MessageBox.Show(query.FirstOrDefault().Id.ToString());
         }
 

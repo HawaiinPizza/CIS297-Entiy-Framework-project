@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace February27th_EntityFramework
 {
-    public partial class Form1 : Form
+    public partial class Form10 : Form
     {
         private CollegeEntities collegeEntities;
-        public Form1()
+        public Form10()
         {
             InitializeComponent();
             collegeEntities = new CollegeEntities();
@@ -38,12 +38,14 @@ namespace February27th_EntityFramework
             facultyForm.Show();
         }
 
-        private void Form1_Enter(object sender, EventArgs e)
+        private void Form10_Enter(object sender, EventArgs e)
         {
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form10_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'collegeSet.Majors' table. You can move, or remove it, as needed.
+            this.majorTableAdapter.Fill(this.collegeSet.Major);
             // TODO: This line of code loads data into the 'collegeDataSetInstructor.Instructor' table. You can move, or remove it, as needed.
             this.instructorTableAdapter.Fill(this.collegeDataSetInstructor.Instructor);
 
@@ -108,21 +110,10 @@ namespace February27th_EntityFramework
         {
             string Change=dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             int ID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            var query = collegeEntities.Instructors.Where(s => s.Id == ID);
+            var query = collegeEntities.Majors.Where(s => s.Id == ID);
 
 
-            switch (e.ColumnIndex)
-            {
-                case 1:
-                    query.FirstOrDefault().Name = Change;
-                    break;
-                case 2:
-                    query.FirstOrDefault().Phone = Change;
-                    break;
-                case 3:
-                    query.FirstOrDefault().Office = Change;
-                    break;
-            }
+            query.FirstOrDefault().Name = Change;
             collegeEntities.SaveChanges();
 
         }
@@ -132,8 +123,8 @@ namespace February27th_EntityFramework
             try
             {
                 int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-                var query = collegeEntities.Instructors.Where(s => s.Id == DeleteID);
-                collegeEntities.Instructors.Remove(query.FirstOrDefault());
+                var query = collegeEntities.Majors.Where(s => s.Id == DeleteID);
+                collegeEntities.Majors.Remove(query.FirstOrDefault());
                 collegeEntities.SaveChanges();
             }
             catch (Exception j)
@@ -148,9 +139,8 @@ namespace February27th_EntityFramework
         {
             dataGridView1.AllowUserToDeleteRows = true;
             if(
-                NameLabel.Text.Length==0 || 
-                OfficeLabel.Text.Length==0 || 
-                PhoneLabel.Text.Length==0 
+                NameLabel.Text.Length==0  ||
+                TypeLabel.Text.Length==0  
                 )
             {
                 MessageBox.Show("One of the data fields is eMPTY");
@@ -159,15 +149,15 @@ namespace February27th_EntityFramework
             else
             {
             MessageBox.Show(dataGridView1.AllowUserToDeleteRows.ToString());
-                Instructor temp = new Instructor()
+                Major temp = new Major()
                 {
                     Name = NameLabel.Text,
-                    Office = OfficeLabel.Text,
-                    Phone = PhoneLabel.Text,
+                    Type=TypeLabel.Text
+
                 };
-                collegeEntities.Instructors.Add(temp);
+                collegeEntities.Majors.Add(temp);
                 collegeEntities.SaveChanges();
-                dataGridView1.DataSource = collegeEntities.Instructors.ToList();
+                dataGridView1.DataSource = collegeEntities.Majors.ToList();
                 dataGridView1.Refresh();
             }
             dataGridView1.AllowUserToDeleteRows = true;
@@ -221,22 +211,6 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_AllowUserToDeleteRowsChanged(object sender, EventArgs e)
         {
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            Form10 temp = new Form10();
-            temp.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 temp = new Form1();
-            temp.Show();
-
         }
     }
 }

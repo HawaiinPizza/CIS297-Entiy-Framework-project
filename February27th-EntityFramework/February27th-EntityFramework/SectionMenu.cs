@@ -84,10 +84,6 @@ namespace February27th_EntityFramework
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
-            var query=collegeEntities.Instructors.Where(s => s.Id == DeleteID);
-            collegeEntities.Instructors.Remove(query.FirstOrDefault());
-            collegeEntities.SaveChanges();
             //MessageBox.Show(query.FirstOrDefault().Id.ToString());
 
         }
@@ -228,5 +224,13 @@ namespace February27th_EntityFramework
 
         }
 
+        private void dataGridView1_UserDeletingRow_1(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            int DeleteID = Int32.Parse(e.Row.Cells[0].Value.ToString());
+            var query=collegeEntities.Sections.Where(s => s.Id == DeleteID);
+            collegeEntities.Sections.Remove(query.FirstOrDefault());
+            collegeEntities.SaveChanges();
+
+        }
     }
 }
