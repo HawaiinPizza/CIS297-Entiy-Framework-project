@@ -1,6 +1,6 @@
 ﻿namespace February27th_EntityFramework
 {
-    partial class Form1
+    partial class Form10
     {
         /// <summary>
         /// Required designer variable.
@@ -33,27 +33,26 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.officeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.collegeDataSetInstructor = new February27th_EntityFramework.CollegeDataSetInstructor();
             this.instructorTableAdapter = new February27th_EntityFramework.CollegeDataSetInstructorTableAdapters.InstructorTableAdapter();
             this.NameLabel = new System.Windows.Forms.TextBox();
-            this.PhoneLabel = new System.Windows.Forms.TextBox();
-            this.OfficeLabel = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.addInstructorButton = new System.Windows.Forms.Button();
+            this.addMajorButton = new System.Windows.Forms.Button();
             this.goSection = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.collegeSet = new February27th_EntityFramework.CollegeSet();
+            this.majorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.majorTableAdapter = new February27th_EntityFramework.CollegeSetTableAdapters.MajorTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TypeLabel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // selectedFacultyLabel
@@ -62,9 +61,9 @@
             this.selectedFacultyLabel.Location = new System.Drawing.Point(58, 165);
             this.selectedFacultyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.selectedFacultyLabel.Name = "selectedFacultyLabel";
-            this.selectedFacultyLabel.Size = new System.Drawing.Size(51, 13);
+            this.selectedFacultyLabel.Size = new System.Drawing.Size(33, 13);
             this.selectedFacultyLabel.TabIndex = 15;
-            this.selectedFacultyLabel.Text = "Instructor";
+            this.selectedFacultyLabel.Text = "Major";
             // 
             // dataGridView1
             // 
@@ -73,10 +72,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.officeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.instructorBindingSource;
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.majorBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 223);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -108,18 +105,6 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // officeDataGridViewTextBoxColumn
-            // 
-            this.officeDataGridViewTextBoxColumn.DataPropertyName = "Office";
-            this.officeDataGridViewTextBoxColumn.HeaderText = "Office";
-            this.officeDataGridViewTextBoxColumn.Name = "officeDataGridViewTextBoxColumn";
-            // 
             // instructorBindingSource
             // 
             this.instructorBindingSource.DataMember = "Instructor";
@@ -141,20 +126,6 @@
             this.NameLabel.Size = new System.Drawing.Size(100, 20);
             this.NameLabel.TabIndex = 18;
             // 
-            // PhoneLabel
-            // 
-            this.PhoneLabel.Location = new System.Drawing.Point(617, 285);
-            this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(100, 20);
-            this.PhoneLabel.TabIndex = 19;
-            // 
-            // OfficeLabel
-            // 
-            this.OfficeLabel.Location = new System.Drawing.Point(617, 353);
-            this.OfficeLabel.Name = "OfficeLabel";
-            this.OfficeLabel.Size = new System.Drawing.Size(100, 20);
-            this.OfficeLabel.TabIndex = 20;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -164,33 +135,15 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Name";
             // 
-            // label2
+            // addMajorButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(532, 285);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Phone";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(532, 356);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Office";
-            // 
-            // addInstructorButton
-            // 
-            this.addInstructorButton.Location = new System.Drawing.Point(535, 178);
-            this.addInstructorButton.Name = "addInstructorButton";
-            this.addInstructorButton.Size = new System.Drawing.Size(182, 23);
-            this.addInstructorButton.TabIndex = 24;
-            this.addInstructorButton.Text = "Add Instructor";
-            this.addInstructorButton.UseVisualStyleBackColor = true;
-            this.addInstructorButton.Click += new System.EventHandler(this.addInstructorButton_Click);
+            this.addMajorButton.Location = new System.Drawing.Point(535, 178);
+            this.addMajorButton.Name = "addMajorButton";
+            this.addMajorButton.Size = new System.Drawing.Size(182, 23);
+            this.addMajorButton.TabIndex = 24;
+            this.addMajorButton.Text = "Add Instructor";
+            this.addMajorButton.UseVisualStyleBackColor = true;
+            this.addMajorButton.Click += new System.EventHandler(this.addInstructorButton_Click);
             // 
             // goSection
             // 
@@ -236,56 +189,62 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // collegeSet
             // 
-            this.button4.Location = new System.Drawing.Point(481, 32);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(55, 23);
-            this.button4.TabIndex = 29;
-            this.button4.Text = "Major";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.collegeSet.DataSetName = "CollegeSet";
+            this.collegeSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button5
+            // majorBindingSource
             // 
-            this.button5.Location = new System.Drawing.Point(557, 32);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(78, 23);
-            this.button5.TabIndex = 30;
-            this.button5.Text = "Instructor";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.majorBindingSource.DataMember = "Major";
+            this.majorBindingSource.DataSource = this.collegeSet;
             // 
-            // Form1
+            // majorTableAdapter
+            // 
+            this.majorTableAdapter.ClearBeforeFill = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(532, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Type";
+            // 
+            // TypeLabel
+            // 
+            this.TypeLabel.Location = new System.Drawing.Point(617, 249);
+            this.TypeLabel.Name = "TypeLabel";
+            this.TypeLabel.Size = new System.Drawing.Size(100, 20);
+            this.TypeLabel.TabIndex = 29;
+            // 
+            // Form10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.goSection);
-            this.Controls.Add(this.addInstructorButton);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.addMajorButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.OfficeLabel);
-            this.Controls.Add(this.PhoneLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.selectedFacultyLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.Form1_Enter);
+            this.Name = "Form10";
+            this.Text = "Form10";
+            this.Load += new System.EventHandler(this.Form10_Load);
+            this.Click += new System.EventHandler(this.Form10_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collegeSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,22 +257,19 @@
         private System.Windows.Forms.BindingSource instructorBindingSource;
         private CollegeDataSetInstructorTableAdapters.InstructorTableAdapter instructorTableAdapter;
         private System.Windows.Forms.TextBox NameLabel;
-        private System.Windows.Forms.TextBox PhoneLabel;
-        private System.Windows.Forms.TextBox OfficeLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button addInstructorButton;
+        private System.Windows.Forms.Button addMajorButton;
         private System.Windows.Forms.Button goSection;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn officeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private CollegeSet collegeSet;
+        private System.Windows.Forms.BindingSource majorBindingSource;
+        private CollegeSetTableAdapters.MajorTableAdapter majorTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TypeLabel;
     }
 }
 
