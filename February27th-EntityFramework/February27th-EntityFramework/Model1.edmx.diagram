@@ -4,19 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e764f9c1012a418aabd30e3fa569ac84" Name="Diagram1" ZoomLevel="120">
-        <EntityTypeShape EntityType="CollegeModel.Course" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="CollegeModel.Enrollment" Width="1.5" PointX="5.25" PointY="0.875" />
-        <EntityTypeShape EntityType="CollegeModel.Instructor" Width="1.5" PointX="3" PointY="4.875" />
-        <EntityTypeShape EntityType="CollegeModel.Major" Width="1.5" PointX="0.75" PointY="1.125" />
-        <EntityTypeShape EntityType="CollegeModel.Section" Width="1.5" PointX="5.25" PointY="4.875" />
-        <EntityTypeShape EntityType="CollegeModel.Student" Width="1.5" PointX="3" PointY="1" />
+      <Diagram DiagramId="e764f9c1012a418aabd30e3fa569ac84" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="CollegeModel.Course" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="CollegeModel.Enrollment" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="CollegeModel.Instructor" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="CollegeModel.Major" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="CollegeModel.Section" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CollegeModel.Student" Width="1.5" PointX="3" PointY="8.375" />
         <AssociationConnector Association="CollegeModel.FK_Section_ToTable" />
-        <AssociationConnector Association="CollegeModel.InstructorID" />
-        <AssociationConnector Association="CollegeModel.UniqueID" />
+        <AssociationConnector Association="CollegeModel.SectionID" />
+        <AssociationConnector Association="CollegeModel.StudentID" />
         <AssociationConnector Association="CollegeModel.FK_Instructor" />
         <AssociationConnector Association="CollegeModel.FK_Major" />
-        <AssociationConnector Association="CollegeModel.SectionID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

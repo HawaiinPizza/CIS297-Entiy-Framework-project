@@ -28,8 +28,8 @@ namespace February27th_EntityFramework
         public string Semester { get; set; }
     
         public virtual Course Course { get; set; }
-        public virtual Instructor Instructor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual Instructor Instructor { get; set; }
     }
 }

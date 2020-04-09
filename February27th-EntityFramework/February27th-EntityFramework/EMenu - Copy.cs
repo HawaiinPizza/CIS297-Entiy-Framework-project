@@ -48,6 +48,8 @@ namespace February27th_EntityFramework
 
         private void Form6_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'collegeSet.Section' table. You can move, or remove it, as needed.
+            this.sectionTableAdapter.Fill(this.collegeSet.Section);
             // TODO: This line of code loads data into the 'collegeSet.Enrollment' table. You can move, or remove it, as needed.
             this.enrollmentTableAdapter.Fill(this.collegeSet.Enrollment);
             // TODO: This line of code loads data into the 'collegeSet.Section' table. You can move, or remove it, as needed.
@@ -210,6 +212,42 @@ namespace February27th_EntityFramework
             collegeEntities.Enrollments.Remove(query.FirstOrDefault());
             collegeEntities.SaveChanges();
             //MessageBox.Show(query.FirstOrDefault().Id.ToString());
+
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+
+            var searchString = filterTextBox1.Text;
+            var Enrollment = from s in collegeEntities.Enrollments
+                           select s;
+            Enrollment = Enrollment.Where(s => s.Student.Name.Contains(searchString));
+            if (Enrollment.Count() == 0)
+            {
+                dataGridView4.DataSource = collegeEntities.Enrollments.ToList();
+            }
+            else
+            {
+                dataGridView4.DataSource = Enrollment.ToList();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var searchString = filterTextBox2.Text;
+            var Enrollment = from s in collegeEntities.Enrollments
+                           select s;
+            Enrollment = Enrollment.Where(s => s.Section.Semester.Contains(searchString));
+            if (Enrollment.Count() == 0)
+            {
+                dataGridView4.DataSource = collegeEntities.Enrollments.ToList();
+                MessageBox.Show("Sucess");
+            }
+            else
+            {
+                dataGridView4.DataSource = Enrollment.ToList();
+                MessageBox.Show("Failure");
+            }
 
         }
     }
