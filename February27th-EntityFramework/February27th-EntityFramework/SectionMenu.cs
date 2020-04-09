@@ -240,5 +240,15 @@ namespace February27th_EntityFramework
             sections = sections.Where(s => s.Semester.Contains(searchString));
             dataGridView1.DataSource = sections.ToList();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var searchString = filterTextBox.Text;
+            var searchString2 = Int32.Parse(instructorFilterTextBox.Text);
+            var sections = from s in collegeEntities.Sections
+                           select s;
+            sections = sections.Where(s => (s.Semester.Contains(searchString) && s.Instructor_ID == searchString2));
+            dataGridView1.DataSource = sections.ToList();
+        }
     }
 }

@@ -250,5 +250,58 @@ namespace February27th_EntityFramework
             }
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayGradesButton_Click(object sender, EventArgs e)
+        {
+            var searchString = Int32.Parse(gradeTextBox.Text);
+            var Enrollment = from s in collegeEntities.Enrollments
+                             select s;
+            Enrollment = Enrollment.Where(s => s.SectionID == searchString);
+
+            int F = 0;
+            int D = 0;
+            int C = 0;
+            int B = 0;
+            int A = 0;
+
+            foreach (var i in Enrollment.ToList())
+            {
+                if (i.Grade < 60)
+                {
+                    F++;
+                } 
+                else if (i.Grade >= 60 && i.Grade < 70)
+                {
+                    D++;
+                }
+                else if (i.Grade >= 70 && i.Grade < 80)
+                {
+                    C++;
+                }
+                else if (i.Grade >= 80 && i.Grade < 90)
+                {
+                    B++;
+                }
+                else if (i.Grade > 90)
+                {
+                    A++;
+                }
+            }
+
+            double fPercent = (double)F / Enrollment.ToList().Count;
+            double dPercent = (double)D / Enrollment.ToList().Count;
+            double cPercent = (double)C / Enrollment.ToList().Count;
+            double bPercent = (double)B / Enrollment.ToList().Count;
+            double aPercent = (double)A / Enrollment.ToList().Count;
+
+            string restultString = "A: " + aPercent + ", B: " + bPercent + ", C: " + cPercent + ", D: " + dPercent + ", F: " + fPercent;
+
+            MessageBox.Show(restultString);
+        }
     }
 }

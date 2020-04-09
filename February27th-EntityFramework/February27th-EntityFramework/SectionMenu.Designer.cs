@@ -77,6 +77,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.filterButton = new System.Windows.Forms.Button();
+            this.filterByName = new System.Windows.Forms.Button();
+            this.instructorFilterTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.instructorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegeDataSetInstructor)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
@@ -436,7 +439,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(723, 434);
+            this.label3.Location = new System.Drawing.Point(726, 456);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 35;
@@ -445,7 +448,7 @@
             // 
             // filterTextBox
             // 
-            this.filterTextBox.Location = new System.Drawing.Point(799, 434);
+            this.filterTextBox.Location = new System.Drawing.Point(799, 453);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(100, 20);
             this.filterTextBox.TabIndex = 36;
@@ -460,11 +463,40 @@
             this.filterButton.UseVisualStyleBackColor = true;
             this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
+            // filterByName
+            // 
+            this.filterByName.Location = new System.Drawing.Point(729, 508);
+            this.filterByName.Name = "filterByName";
+            this.filterByName.Size = new System.Drawing.Size(182, 23);
+            this.filterByName.TabIndex = 38;
+            this.filterByName.Text = "Filter by Name and Semester";
+            this.filterByName.UseVisualStyleBackColor = true;
+            this.filterByName.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // instructorFilterTextBox
+            // 
+            this.instructorFilterTextBox.Location = new System.Drawing.Point(799, 427);
+            this.instructorFilterTextBox.Name = "instructorFilterTextBox";
+            this.instructorFilterTextBox.Size = new System.Drawing.Size(100, 20);
+            this.instructorFilterTextBox.TabIndex = 39;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(728, 430);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "Instructor";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.instructorFilterTextBox);
+            this.Controls.Add(this.filterByName);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.label3);
@@ -558,6 +590,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Button filterByName;
+        private System.Windows.Forms.TextBox instructorFilterTextBox;
+        private System.Windows.Forms.Label label8;
     }
 }
 
