@@ -265,9 +265,17 @@ namespace February27th_EntityFramework
 
             int F = 0;
             int D = 0;
+            int Dminus = 0;
+            int Dplus = 0;
             int C = 0;
+            int Cminus = 0;
+            int Cplus = 0;
             int B = 0;
+            int Bminus = 0;
+            int Bplus = 0;
             int A = 0;
+            int Aminus = 0;
+            int Aplus = 0;
 
             foreach (var i in Enrollment.ToList())
             {
@@ -275,31 +283,75 @@ namespace February27th_EntityFramework
                 {
                     F++;
                 } 
-                else if (i.Grade >= 60 && i.Grade < 70)
+                else if (i.Grade >= 60 && i.Grade < 64)
+                {
+                    Dminus++;
+                }
+                else if (i.Grade >= 64 && i.Grade < 66)
                 {
                     D++;
                 }
-                else if (i.Grade >= 70 && i.Grade < 80)
+                else if (i.Grade >= 66 && i.Grade < 70)
+                {
+                    Dplus++;
+                }
+                else if (i.Grade >= 70 && i.Grade < 74)
+                {
+                    Cminus++;
+                }
+                else if (i.Grade >= 74 && i.Grade < 76)
                 {
                     C++;
                 }
-                else if (i.Grade >= 80 && i.Grade < 90)
+                else if (i.Grade >= 76 && i.Grade < 80)
+                {
+                    Cplus++;
+                }                
+                else if (i.Grade >= 80 && i.Grade < 84)
+                {
+                    Bminus++;
+                }
+                else if (i.Grade >= 84 && i.Grade < 86)
                 {
                     B++;
                 }
-                else if (i.Grade > 90)
+                else if (i.Grade >= 86 && i.Grade < 90)
+                {
+                    Bplus++;
+                }                
+                else if (i.Grade >= 90 && i.Grade < 94)
+                {
+                    Aminus++;
+                }
+                else if (i.Grade >= 94 && i.Grade < 96)
                 {
                     A++;
+                }
+                else if (i.Grade > 96)
+                {
+                    Aplus++;
                 }
             }
 
             double fPercent = (double)F / Enrollment.ToList().Count;
             double dPercent = (double)D / Enrollment.ToList().Count;
+            double dMinusPercent = (double)Dminus / Enrollment.ToList().Count;
+            double dPlusPercent = (double)Dplus / Enrollment.ToList().Count;
             double cPercent = (double)C / Enrollment.ToList().Count;
+            double cMinusPercent = (double)Cminus / Enrollment.ToList().Count;
+            double cPlusPercent = (double)Cplus / Enrollment.ToList().Count;
             double bPercent = (double)B / Enrollment.ToList().Count;
+            double bMinusPercent = (double)Bminus / Enrollment.ToList().Count;
+            double bPlusPercent = (double)Bplus / Enrollment.ToList().Count;
             double aPercent = (double)A / Enrollment.ToList().Count;
+            double aMinusPercent = (double)Aminus / Enrollment.ToList().Count;
+            double aPlusPercent = (double)Aplus / Enrollment.ToList().Count;
 
-            string restultString = "A: " + aPercent + ", B: " + bPercent + ", C: " + cPercent + ", D: " + dPercent + ", F: " + fPercent;
+            string restultString = "A+: " + aPlusPercent + ", A: " + aPercent + ", A-: " + aMinusPercent +
+                "\nB+: " + bPlusPercent + ", B: " + bPercent + ", B-: " + bMinusPercent +
+                "\nC+: " + cPlusPercent + ", C: " + cPercent + ", C-: " + cMinusPercent +
+                "\nD+: " + dPlusPercent + ", D: " + dPercent + ", D-: " + dMinusPercent +
+                "\nF: " + fPercent;
 
             MessageBox.Show(restultString);
         }
